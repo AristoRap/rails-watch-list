@@ -1,4 +1,4 @@
-<div class="jumbotron jumbotron-fluid">
+<div class="jumbotron jumbotron-fluid banner">
   <div class="container text-center">
     <h1 class="display-4">WatchList</h1>
     <p class="lead">Browse, organize and save your movies</p>
@@ -12,13 +12,16 @@
     <h1>My Lists</h1>
     <%= link_to 'Add a new list', new_list_path, class: 'btn btn-primary' %>
   </div>
+
   <% if @lists.length.zero? %>
     <p class='lead'>No lists created.</p>
   <% else %>
-    <% @lists.each do |list|%>
-      <div class="card-category">
-        <%= list.name %>
-      </div>
-    <% end %>
+    <div class="cards">
+      <% @lists.each do |list|%>
+        <div class="card-category">
+          <%= link_to list.name, list_path(list)%>
+        </div>
+      <% end %>
   <% end %>
+  </div>
 </div>
