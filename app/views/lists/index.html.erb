@@ -1,2 +1,24 @@
-<h1>Lists#index</h1>
-<p>Find me in app/views/lists/index.html.erb</p>
+<div class="jumbotron jumbotron-fluid">
+  <div class="container text-center">
+    <h1 class="display-4">WatchList</h1>
+    <p class="lead">Browse, organize and save your movies</p>
+  </div>
+</div>
+
+
+
+<div class="container">
+  <div class="d-flex justify-content-between align-items-center">
+    <h1>My Lists</h1>
+    <%= link_to 'Add a new list', new_list_path, class: 'btn btn-primary' %>
+  </div>
+  <% if @lists.length.zero? %>
+    <p class='lead'>No lists created.</p>
+  <% else %>
+    <% @lists.each do |list|%>
+      <div class="card-category">
+        <%= list.name %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
