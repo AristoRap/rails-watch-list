@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2022_01_22_105500) do
     t.string "title"
     t.text "overview"
     t.string "poster_url"
-    t.decimal "rating"
+    t.float "rating"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
