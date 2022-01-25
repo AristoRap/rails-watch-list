@@ -18,7 +18,7 @@
   <% else %>
     <div class="cards">
       <% @lists.each do |list|%>
-        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.3)), url(<%= list.image_url %>)">
+        <div class="card-category card-list" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.3)), url(<%= list.image_url %>)">
           <%= link_to list.name, list_path(list)%>
         </div>
       <% end %>

@@ -1,3 +1,4 @@
+Bookmark.destroy_all
 Movie.destroy_all
 
 movies_api_url = 'http://tmdb.lewagon.com/movie/top_rated'
@@ -8,7 +9,7 @@ movies_response['results'].sample(5).each do |movie|
   Movie.create(
     title: movie['original_title'],
     overview: movie['overview'],
-    poster_url: movie['poster_path'],
+    poster_url: "https://www.themoviedb.org/t/p/original#{movie['poster_path']}",
     rating: movie['vote_average']
   )
 end

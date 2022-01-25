@@ -15,9 +15,9 @@
   <div class="cards">
     <% @list.movies.each do |movie|%>
     <% bookmark = Bookmark.find_by(list: @list, movie: movie) %>
-      <div class="card-category">
-        <p><%= movie.title%></p>
-        <p><%= movie.overview%></p>
+      <div class="card-category card-movie" style="background-image: url(<%=movie.poster_url%>)">
+          <h2><%= movie.title%></h2>
+          <p><%= movie.overview%></p>
       </div>
     <% end %>
   </div>
