@@ -3,14 +3,17 @@
   background-position: center;
   height: 180px;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-end;
   font-size: 24px;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  background-color: #064663;
+  background-color: #E84545;
   a {
-    color: #EEEEEE;
+    padding-left: 8px;
+    color: white;
+    background: linear-gradient(rgba(81, 146, 89, 0), rgba(0,0,0,0.8));
+    width: 100%;
   }
 }

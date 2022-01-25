@@ -1,0 +1,9 @@
+.button-purple {
+  border-radius: 5px;
+  color: #2B2E4A;
+  border: 2px solid #2B2E4A;
+  &:hover {
+    background-color: #2B2E4A;
+    color: white;
+  }
+}
