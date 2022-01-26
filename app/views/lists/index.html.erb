@@ -16,7 +16,7 @@
           <% @lists.each do |list|%>
             <div class="card-category card-list">
               <%= link_to list.name, list_path(list)%>
-              <%= link_to "Remove", list_path(list), method: :delete, data: { confirm: "Are you sure?" }, class: 'button-red'%>
+              <%= link_to "Remove", list_path(list), method: :delete, data: { confirm: "Are you sure?"}, class: 'button-red'%>
             </div>
           <% end %>
         </div>
