@@ -1,9 +1,20 @@
-.button-purple {
+.button-orange {
   border-radius: 5px;
-  color: #2B2E4A;
-  border: 2px solid #2B2E4A;
+  color: #F0A500;
+  border: 2px solid #F0A500;
   &:hover {
-    background-color: #2B2E4A;
-    color: white;
+    background-color: #F0A500;
+    color: #000000;
   }
+}
+
+.button-red {
+  font-size: 12px;
+  border-radius: 5px;
+  color: #DD4A48 !important;
+  &:hover {
+    background-color: #DD4A48;
+    color: white !important;
+  }
+
 }

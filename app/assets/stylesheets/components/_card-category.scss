@@ -1,23 +1,20 @@
 .card-category {
-  height: 250px;
+  width: 100%;
   background-size: cover;
   background-position: center;
   font-size: 24px;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  border-radius: 5px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  background-color: #E84545;
+  border-bottom: 1px solid rgba(240, 165, 0, 0.4);
   a {
-    padding-left: 8px;
     color: white;
-    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4));
-    width: 100%;
+    text-decoration: none;
   }
 }
 .card-list {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: flex-end;
+  margin: 16px 0;
 }
 .card-movie {
   display: flex;
