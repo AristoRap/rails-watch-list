@@ -1,0 +1,24 @@
+<% if @lists.length.zero? %>
+  <p class='lead'>No lists created.</p>
+<% else %>
+  <div class="d-flex flex-column justify-content-between">
+    <% @lists.each do |list|%>
+      <div class="card-category card-list">
+        <%= link_to list.name, list_path(list)%>
+        <%= link_to "Remove", list_path(list), method: :delete, data: { confirm: "Are you sure?"}, class: 'button-red'%>
+      </div>
+      <% if list.movies.length.zero? %>
+        <p>No movies added</p>
+      <% else %>
+        <div class="cards">
+          <% list.movies.each do |movie|%>
+            <% bookmark = Bookmark.find_by(list: @list, movie: movie) %>
+            <div class="card-movie" style="background-image: url(<%=movie.poster_url%>)">
+                <h2><%= movie.title%></h2>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>
