@@ -1,7 +1,7 @@
 <div class="container">
   <h1>New list</h1>
 
-  <%= simple_form_for(@list) do |f| %>
+  <%= simple_form_for @list, html: { class: "text-light-gray"} do |f| %>
     <%= f.input :name %>
     <%= f.submit %>
   <% end %>
