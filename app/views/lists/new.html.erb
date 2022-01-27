@@ -3,7 +3,8 @@
 
   <%= simple_form_for @list, html: { class: "text-light-gray"} do |f| %>
     <%= f.input :name %>
-    <%= f.input :image_url %>
+    <%= f.input :image_url, label: 'Add a link to an image' %>
+    <%= f.input :photo, as: :file, label: 'or, Upload an image'%>
     <%= f.submit %>
   <% end %>
 </div>
