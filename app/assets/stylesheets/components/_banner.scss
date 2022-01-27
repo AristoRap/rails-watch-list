@@ -6,3 +6,12 @@
     opacity: 0.8
   }
 }
+
+.banner-list {
+  background-size: cover;
+  background-position: center;
+  height: 30vh;
+  .banner-bg {
+    height: 100%;
+  }
+}

@@ -1,10 +1,10 @@
 .button-orange {
   border-radius: 5px;
-  color: #F0A500;
+  color: #F0A500 !important;
   border: 2px solid #F0A500;
   &:hover {
     background-color: #F0A500;
-    color: #000000;
+    color: #000000 !important;
   }
 }
 

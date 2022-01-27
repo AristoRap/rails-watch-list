@@ -1,21 +1,18 @@
-<div class="jumbotron jumbotron-fluid banner">
-  <div class="container text-center">
-    <h1 class="display-4"><%= @list.name %> Movies</h1>
-    <%# <p class="lead">Browse, organize and save your movies</p> %>
+<div class="banner-list">
+  <div class="d-flex w-100 align-items-center justify-content-center banner-bg" style="background-image: linear-gradient(rgba(20,20,20,0.4), rgba(200,200,200,0.2)), url(<%=@list.image_url%>)">
+    <h1 class="display-4 text-white"><%= @list.name %> Movies</h1>
   </div>
 </div>
 
-
-
 <div class="container">
-  <div class="d-flex justify-content-between align-items-center">
-    <h1>Movies</h1>
-    <%= link_to 'Add a movie', new_list_bookmark_path(@list), class: 'btn button-purple' %>
+  <div class="d-flex justify-content-between align-items-center card-category card-list">
+    <h1 class="text-light-gray"><%= @list.name %></h1>
+    <%= link_to 'Add a movie', new_list_bookmark_path(@list), class: 'btn button-orange' %>
   </div>
   <div class="cards">
     <% @list.movies.each do |movie|%>
     <% bookmark = Bookmark.find_by(list: @list, movie: movie) %>
-      <div class="card-category card-movie" style="background-image: url(<%=movie.poster_url%>)">
+      <div class="card-list-movie" style="background-image: linear-gradient(rgba(20,20,20,0.4), rgba(200,200,200,0.2)), url(<%=movie.poster_url%>)">
           <h2><%= movie.title%></h2>
           <p><%= movie.overview%></p>
       </div>

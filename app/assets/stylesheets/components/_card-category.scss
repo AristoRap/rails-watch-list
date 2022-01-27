@@ -33,3 +33,13 @@
     background: linear-gradient(to left, rgba(255, 255, 255, 0), rgba(0, 0, 0, 1));
   }
 }
+
+.card-list-movie {
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  border-radius: 5px;
+}

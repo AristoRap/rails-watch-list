@@ -1,8 +1,9 @@
 <div class="container">
-  <h1>New list</h1>
+  <h1 class="text-orange">New list</h1>
 
   <%= simple_form_for @list, html: { class: "text-light-gray"} do |f| %>
     <%= f.input :name %>
+    <%= f.input :image_url %>
     <%= f.submit %>
   <% end %>
 </div>
