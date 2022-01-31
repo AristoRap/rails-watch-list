@@ -1,10 +1,12 @@
 .button-orange {
+  padding: 8px;
   border-radius: 5px;
-  color: #F0A500 !important;
-  border: 2px solid #F0A500;
+  color: $orange;
+  border: 2px solid $orange;
   &:hover {
-    background-color: #F0A500;
-    color: #000000 !important;
+    background-color: $orange;
+    color: #000000;
+    text-decoration: none;
   }
 }
 
@@ -12,11 +14,11 @@
   font-size: 12px;
   padding: 4px;
   text-decoration: none;
-  color: rgba(255, 255, 255, 0.4) !important;
+  color: rgba(255, 255, 255, 0.4);
   &:hover {
     text-decoration: underline;
     text-underline-position: under;
-    color: #DD4A48 !important;
+    color: $red;
   }
 
 }

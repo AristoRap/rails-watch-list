@@ -15,7 +15,7 @@ class ListsController < ApplicationController
     @list = List.new(list_params)
     @list.user = current_user
     if @list.save
-      redirect_to root_path
+      redirect_to lists_path
     else
       render :new
     end
@@ -24,7 +24,7 @@ class ListsController < ApplicationController
   def destroy
     list = List.find(params[:id])
     list.destroy
-    redirect_to root_path
+    redirect_to lists_path
   end
 
   private

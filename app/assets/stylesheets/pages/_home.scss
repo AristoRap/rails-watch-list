@@ -8,10 +8,10 @@ body {
   background-color: #000000;
 
   h2, h3 {
-    color: rgba(255, 255, 255, 0.8);
+    color: $light-gray;
   }
 }
 
 p {
-  color: rgba(255, 255, 255, 0.6);
+  color: $lighter-gray;
 }

@@ -1,0 +1,34 @@
+.footer {
+  background-color: black;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 70px;
+  color: rgba(0,0,0,0.3);
+
+  .footer-copyright {
+    color: $light-gray;
+  }
+
+  .fa-heart {
+  color: #D23333;
+  }
+}
+.footer-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  a {
+    color: $light-gray;
+    opacity: 0.75;
+    text-decoration: none;
+    font-size: 24px;
+    padding: 0px 10px;
+  }
+  a:hover {
+    opacity: 1;
+    color: $orange;
+  }
+}

@@ -4,7 +4,7 @@
   <div class="d-flex flex-column justify-content-between">
     <% @lists.each do |list|%>
       <div class="card-category card-list">
-        <%= link_to list.name, list_path(list)%>
+        <%= link_to list.name, list_path(list), class: 'text-white text-decoration-none'%>
         <%= link_to "Remove", list_path(list), method: :delete, data: { confirm: "Are you sure?"}, class: 'button-red'%>
       </div>
       <% if list.movies.length.zero? %>
