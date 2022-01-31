@@ -1,11 +1,10 @@
 Bookmark.destroy_all
 Movie.destroy_all
 
-movies_api_url = 'http://tmdb.lewagon.com/movie/top_rated'
-movies_serialized = URI.parse(movies_api_url).read
+movies_serialized = URI.parse(ENV["MOVIES_API_URL"]).read
 movies_response = JSON.parse(movies_serialized)
 
-movies_response['results'].sample(5).each do |movie|
+movies_response['results'].sample(10).each do |movie|
   Movie.create(
     title: movie['original_title'],
     overview: movie['overview'],
