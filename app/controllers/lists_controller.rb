@@ -1,4 +1,8 @@
 class ListsController < ApplicationController
+  def my_lists
+    @lists = current_user.lists
+  end
+
   def index
     @lists = List.order(:name)
   end
