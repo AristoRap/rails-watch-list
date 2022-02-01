@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon p-3">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon p-3 mb-3">
   <div class="container-fluid">
     <%= link_to root_path, class: "navbar-brand text-white" do %>
       WatchList
@@ -15,7 +15,7 @@
             <%= link_to "Home", "#", class: "nav-link text-white" %>
           </li>
           <li class="nav-item">
-            <%= link_to "My Lists", "#", class: "nav-link text-white" %>
+            <%= link_to "My Lists", lists_path, class: "nav-link text-white" %>
           </li>
           <li class="nav-item">
             <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "nav-link text-white" %>

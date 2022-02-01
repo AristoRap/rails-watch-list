@@ -29,12 +29,12 @@
   h1 {
     margin: 0;
     color: white;
-    background: linear-gradient(rgba(20, 20, 20, 1), rgba(20, 20, 20, 1));
     width: 100%;
+    background-color: $dark-gray;
     text-align: center;
   }
   h3 {
-    background: linear-gradient(rgba(20, 20, 20, 1), rgba(20, 20, 20, 1));
+    background-color: $dark-gray;
     width: 100%;
     text-align: center;
     padding-bottom: 16px;
