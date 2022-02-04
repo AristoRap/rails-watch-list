@@ -1,7 +1,9 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon p-3 mb-3">
   <div class="container-fluid">
-    <%= link_to root_path, class: "navbar-brand text-white" do %>
-      WatchList
+    <% if user_signed_in? %>
+      <%= link_to 'WatchList', lists_path, class: "navbar-brand text-white" %>
+    <% else %>
+      <%= link_to 'WatchList', root_path , class: "navbar-brand text-white" %>
     <% end %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
