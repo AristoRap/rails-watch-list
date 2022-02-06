@@ -1,0 +1,18 @@
+<div class="container">
+  <h2>Most popular</h2>
+
+  <div class="movie-cards">
+    <% @movies.each do |movie| %>
+      <div class="card">
+      <%= image_tag "https://www.themoviedb.org/t/p/original#{movie['backdrop_path']}", class: 'card-img-top'%>
+
+        <div class="card-body bg-dark d-flex flex-column justify-content-between">
+          <h5 class="card-title text-light-gray"><%= movie['original_title'] %></h5>
+          <p class="card-text"><%= movie['rating'] %></p>
+          <a href="#" class="btn button-orange">Read more</a>
+        </div>
+
+      </div>
+    <% end %>
+  </div>
+</div>

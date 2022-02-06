@@ -7,4 +7,9 @@ Rails.application.routes.draw do
   end
   resources :bookmarks, only: [:destroy]
   resources :lists, only: [:destroy]
+  resources :movies, only: [:index] do
+    collection do
+      get '/popular', to: 'movies#popular'
+    end
+  end
 end
