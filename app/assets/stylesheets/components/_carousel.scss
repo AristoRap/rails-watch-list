@@ -1,0 +1,29 @@
+.swiper-slide {
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.active-carousel {
+  border:  1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 8px white;
+}
+
+.swiper-nav {
+  transform: scale(1.2);
+  padding: 8px;
+  text-shadow: 0 0 16px black;
+  &:hover {
+    transform: scale(1.3);
+  }
+}
