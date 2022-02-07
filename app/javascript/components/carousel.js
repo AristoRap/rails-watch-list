@@ -6,11 +6,17 @@ Swiper.use([Navigation, Pagination]);
 
 const loadSwiperCarousel = () => {
   new Swiper(".mySwiper", {
+    effect: "coverflow",
+    effect: "fade",
+    fadeEffect: {
+      crossFade: true,
+    },
     slidesPerView: 6,
     spaceBetween: 30,
     slidesPerGroup: 1,
     loop: true,
     loopFillGroupWithBlank: true,
+    preventClicks: true,
     pagination: {
       el: ".swiper-pagination",
       clickable: true,
