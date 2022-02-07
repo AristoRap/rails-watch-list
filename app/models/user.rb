@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :lists
-  has_many :movies
+  has_many :favorites
+  has_many :movies, through: :favorites
   has_one_attached :photo
 end
