@@ -31,7 +31,7 @@
               <% if current_user.photo.attached? %>
                 <%= cl_image_tag current_user.photo.key %>
               <% else %>
-                <%= cl_image_tag 'jw3oe4iuuzjtpoo2naua', width: 400, crop: :fill, class: 'avatar' %>
+                <%= image_tag asset_path('avatar_default.png'), class: 'avatar' %>
               <% end %>
             </a>
 
