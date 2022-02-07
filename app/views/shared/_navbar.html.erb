@@ -29,9 +29,9 @@
           <li class="dropdown">
             <a class="avatar ml-2" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <% if current_user.photo.attached? %>
-                <%= cl_image_tag current_user.photo.key %>
+                <%= cl_image_tag current_user.photo.key, height: 40, width: 40, class:'rounded-circle avatar'%>
               <% else %>
-                <%= cl_image_tag 'jw3oe4iuuzjtpoo2naua', width: 400, crop: :fill, class: 'avatar' %>
+                <%= image_tag asset_path('avatar_default'), class: 'avatar' %>
               <% end %>
             </a>
 
