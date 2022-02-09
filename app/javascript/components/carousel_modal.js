@@ -5,15 +5,15 @@ const updateActiveSlideOnClick = () => {
     slides.forEach((slide) => {
       slide.classList.remove("active-carousel");
     });
-  }
+  };
 
   // Listen to any clicks on a movie
   slides.forEach((slide) => {
     slide.addEventListener("click", (e) => {
       removeActiveClass();
-      e.currentTarget.classList.add("active-carousel")
-    })
+      e.currentTarget.classList.add("active-carousel");
+    });
   });
-}
+};
 
-export { updateActiveSlideOnClick }
+export { updateActiveSlideOnClick };

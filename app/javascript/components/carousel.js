@@ -6,41 +6,15 @@ Swiper.use([Navigation, Pagination]);
 
 const loadSwiperCarousel = () => {
   new Swiper(".mySwiper", {
-    effect: "coverflow",
-    effect: "fade",
-    fadeEffect: {
-      crossFade: true,
-    },
-    slidesPerView: 6,
-    spaceBetween: 30,
+    slidesPerView: 10,
+    spaceBetween: 5,
     slidesPerGroup: 1,
     loop: true,
+    centeredSlides: true,
     loopFillGroupWithBlank: true,
-    preventClicks: true,
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
     navigation: {
       nextEl: ".swiper-button-next",
       prevEl: ".swiper-button-prev",
-    },
-    on: {
-      init: function () {
-        const activeSlide = document.querySelector(".swiper-slide-active");
-        console.log(activeSlide);
-        activeSlide.classList.add("active-carousel");
-      },
-    },
-    on: {
-      slideChangeTransitionStart: function (e) {
-        const slides = document.querySelectorAll(".swiper-slide");
-        slides.forEach((slide) => {
-          slide.classList.remove("active-carousel");
-        });
-        const activeSlide = e.el.querySelector(".swiper-slide-active");
-        activeSlide.classList.add("active-carousel");
-      },
     },
   });
 }
