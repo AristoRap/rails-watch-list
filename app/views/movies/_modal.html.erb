@@ -1,10 +1,18 @@
 <div class="modal fade" id="exampleModalCenter<%=movie['id']%>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
+    <div class="modal-content mdl-dark">
       <div class="mdl-header p-0">
       <div class='mdl-image-wrap'>
-        <%= image_tag "https://www.themoviedb.org/t/p/original#{movie['backdrop_path']}", class: 'mdl-image' %>
         <div class="gradient"></div>
+        <% if current_user.favorites.include? movie %>
+          <i class="fas fa-heart favorite favorite-active"></i>
+        <% else %>
+          <%= link_to favorites_path(movie_id: movie['id'].to_i), method: :post, remote: true do %>
+            <i class="far fa-heart favorite"></i>
+          <% end %>
+        <% end %>
+
+        <%= image_tag "https://www.themoviedb.org/t/p/original#{movie['backdrop_path']}", class: 'mdl-image' %>
         <h5 class="mdl-title" id="exampleModalLongTitle"><%= movie['original_title'] %></h5>
         <button type="button" class="mdl-close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">x</span>

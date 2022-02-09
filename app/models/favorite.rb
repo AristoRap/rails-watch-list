@@ -1,4 +1,4 @@
 class Favorite < ApplicationRecord
   belongs_to :user, dependent: :destroy
-  belongs_to :movie
+  validates :movie_id, presence: true, uniqueness: { scope: :user }
 end
