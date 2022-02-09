@@ -2,13 +2,37 @@
   padding: 0;
 }
 
+.mdl-dark {
+  background-color: $dark-gray;
+}
+.mdl-header{
+  border-bottom: 1px solid rgba(0, 0, 0, 0.6);
+}
+
+.mdl-title{
+  position: absolute;
+  bottom: 0;
+  color: white;
+  padding-left: 1rem;
+  font-size: 2em;
+}
+
 .mdl-image-wrap {
   position: relative;
+  .gradient {
+    top: 50%;
+    position: absolute;
+    height: 50%;
+    width: 100%;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.7), black);
+  }
 }
 
 .mdl-image {
+  background-size: cover;
   width: 100%;
   height: auto;
+  background: linear-gradient(black, black)
 }
 
 .mdl-close {
