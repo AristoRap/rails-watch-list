@@ -8,7 +8,7 @@ const loadSwiperCarousel = () => {
   new Swiper(".mySwiper", {
     slidesPerView: 10,
     spaceBetween: 5,
-    slidesPerGroup: 1,
+    slidesPerGroup: 2,
     loop: true,
     centeredSlides: true,
     loopFillGroupWithBlank: true,

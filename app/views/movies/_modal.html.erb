@@ -1,11 +1,14 @@
 <div class="modal fade" id="exampleModalCenter<%=movie['id']%>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
-      <div class="modal-header">
+      <div class="modal-header p-0">
+      <div class='mdl-image-wrap'>
+        <%= image_tag "https://www.themoviedb.org/t/p/original#{movie['backdrop_path']}", class: 'mdl-image' %>
         <h5 class="modal-title" id="exampleModalLongTitle"><%= movie['original_title'] %></h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
+        <button type="button" class="mdl-close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">x</span>
         </button>
+      </div>
       </div>
       <div class="modal-body ">
         <p class='text-dark'><%= movie['overview'] %></p>
