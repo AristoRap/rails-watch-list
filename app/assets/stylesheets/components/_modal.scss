@@ -82,3 +82,23 @@
     color: white;
     opacity: 1;
 }
+
+.mdl-button {
+  border: 0;
+  background: none;
+}
+
+.modal-body {
+  h2 {
+    margin: 0;
+  }
+  p {
+    font-size: 0.8em;
+  }
+  #add-favorite {
+    font-size: 0.8em;
+  }
+  i {
+    font-size: 2em;
+  }
+}

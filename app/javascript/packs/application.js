@@ -10,6 +10,7 @@ import "channels"
 import "bootstrap";
 import { loadSwiperCarousel } from "../components/carousel";
 import { updateActiveSlideOnClick } from "../components/carousel_modal";
+import { addToFavorites, removeFromFavorites } from "../add_to_favorites";
 
 Rails.start()
 Turbolinks.start()
@@ -20,4 +21,6 @@ document.addEventListener("turbolinks:load", () => {
   // [...]
   loadSwiperCarousel();
   updateActiveSlideOnClick();
+  addToFavorites();
+  removeFromFavorites();
 });

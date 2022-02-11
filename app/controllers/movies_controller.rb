@@ -1,6 +1,7 @@
 class MoviesController < ApplicationController
   def popular
     @movies = popular_movies
+    @favorite = Favorite.new
   end
 
   private

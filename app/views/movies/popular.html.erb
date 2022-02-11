@@ -11,6 +11,6 @@
       <div class="swiper-button-prev swiper-nav text-white"></div>
     </div>
     <% @movies.each do |movie| %>
-      <%= render 'modal', movie: movie %>
+      <%= render 'modal', movie: movie, favorite: @favorite %>
     <% end %>
 </div>
