@@ -6,11 +6,8 @@ class FavoritesController < ApplicationController
     @favorite = Favorite.new(favorite_params)
     @favorite.user = current_user
     respond_to do |format|
-      if @favorite.save
-        format.json { render json: @favorite, status: :created, location: @favorite }
-      else
-        format.json { render json: @favorite.errors, status: :unprocessable_entity }
-      end
+      @favorite.save
+      format.json
     end
   end
 
@@ -19,8 +16,13 @@ class FavoritesController < ApplicationController
 
   def destroy
     @favorite = Favorite.find(params[:id])
-    format.json { render json: @favorite.errors, status: :unprocessable_entity } unless @favorite.destroy
+    @movie = @favorite.movie_id
+    respond_to do |format|
+      @favorite.destroy
+      format.json
+    end
   end
+
 
   private
 

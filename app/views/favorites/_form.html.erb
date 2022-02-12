@@ -1,0 +1,11 @@
+<% if current_user.favorites.find_by(movie_id: movie) %>
+  <%= simple_form_for current_user.favorites.find_by(movie_id: movie), method: :delete, data: { update_favorites_target: 'form', action: 'submit->update-favorites#favorite'} do |f| %>
+    <%= f.hidden_field :movie_id, value: movie %>
+    <%= f.button :button, 'Remove from favorites', class: 'btn button-orange' %>
+  <% end %>
+<% else %>
+  <%= simple_form_for favorite,data: { update_favorites_target: 'form', action: 'submit->update-favorites#favorite'} do |f| %>
+    <%= f.hidden_field :movie_id, value: movie %>
+    <%= f.button :button, 'Add to favorites', class: 'btn button-orange' %>
+  <% end %>
+<% end %>
