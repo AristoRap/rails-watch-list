@@ -1,16 +1,55 @@
-<div class="wrapper">
+<div class="wrapper" data-controller='add-modal'>
   <h2>Most popular</h2>
-
-    <div class="swiper mySwiper">
-      <div class="swiper-wrapper p-1">
-        <% @movies.each do |movie| %>
-          <%= image_tag "https://www.themoviedb.org/t/p/original#{movie['poster_path']}", data: { id: movie['id'] }, data: { toggle: "modal", target: "#exampleModalCenter#{movie['id']}" }, class: 'swiper-slide movie-images rounded'%>
-        <% end %>
-      </div>
-      <div class="swiper-button-next swiper-nav text-white"></div>
-      <div class="swiper-button-prev swiper-nav text-white"></div>
+  <div class="swiper mySwiper" >
+    <div class="swiper-wrapper p-1">
+      <% @movies.each do |movie| %>
+        <%= image_tag "https://www.themoviedb.org/t/p/original#{movie['poster_path']}",
+                      class: 'swiper-slide movie-images rounded',
+                      data: { id: movie['id'], action: 'click->add-modal#add',
+                              toggle: "modal", target: "#movieModal"} %>
+         <% end %>
     </div>
-    <% @movies.each do |movie| %>
-      <%= render 'modal', movie: movie, favorite: @favorite %>
-    <% end %>
+    <div class="swiper-button-next swiper-nav text-white"></div>
+    <div class="swiper-button-prev swiper-nav text-white"></div>
+  </div>
+
+  <div class="mdl" data-add-modal-target='modal'>
+    <div class="modal fade" id='movieModal' data-add-modal-target='movieModal' data-controller='update-favorites' tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content mdl-dark">
+          <div class="mdl-header p-0">
+            <div class='mdl-image-wrap'>
+              <div class="gradient"></div>
+              <%= image_tag asset_path('black_image.jpg'), data: { add_modal_target: 'backdrop' }, class: 'mdl-image' %>
+              <h5 class="mdl-title" data-add-modal-target="title"></h5>
+              <button type="button" class="mdl-close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">x</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="modal-body mdl-dark">
+            <div class='d-flex justify-content-between'>
+              <div class='w-75'>
+                <p data-add-modal-target='overview'></p>
+              </div>
+
+              <div class='d-flex align-items-start'>
+                <i class="fab fa-imdb text-orange mr-2"></i>
+                <h2 class='lead pt-1' data-add-modal-target='imdbAverage'></h2>
+              </div>
+            </div>
+
+            <%= simple_form_for @favorite, html: { class: 'fav-form', id: 'favorite' }, data: { add_modal_target: 'favorite', update_favorites_target: 'form', action: 'submit->update-favorites#favorite'}, remote: true do |f| %>
+              <%= f.hidden_field :movie_id, value: '', data: { add_modal_target: 'movieId' } %>
+              <%= f.button :button, 'Add to favorites', data: { add_modal_target: 'btnForm' }, class: 'btn button-orange' %>
+              <input type="hidden" name="_method" value="delete" data-add-modal-target="delete"></input>
+            <% end %>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
 </div>

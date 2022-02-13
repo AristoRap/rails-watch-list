@@ -1,4 +1,4 @@
-<div class="modal fade" id="exampleModalCenter<%=movie['id']%>" data-controller='update-favorites' tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal fade" id="movieModal" data-controller='update-favorites' tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
     <div class="modal-content mdl-dark">
       <div class="mdl-header p-0">
@@ -15,24 +15,24 @@
       <div class="modal-body mdl-dark">
         <div class='d-flex justify-content-between'>
           <div class='w-75'>
-            <p><%= movie['overview'] %></p>
+            <p id='overview'></p>
           </div>
 
           <div class='d-flex align-items-start'>
             <i class="fab fa-imdb text-orange mr-2"></i>
-            <h2 class='lead pt-1'><%= movie['vote_average'] %> / 10</h2>
+            <h2 class='lead pt-1' id='imdbAverage'></h2>
           </div>
         </div>
 
           <% if current_user.favorites.find_by(movie_id: movie['id']) %>
-            <%= simple_form_for current_user.favorites.find_by(movie_id: movie['id']), method: :delete, html: { class: 'fav-form' }, data: { update_favorites_target: 'form', action: 'submit->update-favorites#favorite'} do |f| %>
-              <%= f.hidden_field :movie_id, value: movie['id'].to_i %>
+            <%= simple_form_for current_user.favorites.find_by(movie_id: movie['id']), method: :delete, html: { class: 'fav-form', id: 'addFavorite' }, data: { update_favorites_target: 'form', action: 'submit->update-favorites#favorite'} do |f| %>
+              <%= f.hidden_field :movie_id, value: '', id: 'movieId' %>
               <%= f.button :button, 'Remove from favorites', class: 'btn button-orange' %>
             <% end %>
 
           <% else %>
-            <%= simple_form_for favorite, data: { update_favorites_target: 'form', action: 'submit->update-favorites#favorite'} do |f| %>
-              <%= f.hidden_field :movie_id, value: movie['id'].to_i %>
+            <%= simple_form_for favorite, html: { class: 'fav-form', id: 'removeFavorite' }, data: { update_favorites_target: 'form', action: 'submit->update-favorites#favorite'} do |f| %>
+              <%= f.hidden_field :movie_id, value: '', id: 'movieId' %>
               <%= f.button :button, 'Add to favorites', class: 'btn button-orange' %>
             <% end %>
           <% end %>

@@ -2,6 +2,11 @@ class MoviesController < ApplicationController
   def popular
     @movies = popular_movies
     @favorite = Favorite.new
+    @favorites = current_user.favorites
+    respond_to do |format|
+      format.html
+      format.json { render json: { movies: @movies, favorites: @favorites } }
+    end
   end
 
   private
