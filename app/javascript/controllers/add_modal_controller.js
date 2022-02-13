@@ -10,7 +10,8 @@ export default class extends Controller {
     "backdrop",
     "delete",
     "btnForm",
-    "category"
+    "category",
+    "modal"
   ];
 
   add(e) {
@@ -38,8 +39,9 @@ export default class extends Controller {
           // Update overview
           this.overviewTarget.innerText = clickedMovie.overview;
           // Update imdbAverage
-          this.imdbAverageTarget.innerText = `${clickedMovie.vote_average}/10`;
+          this.imdbAverageTarget.innerText = `${clickedMovie.vote_average} / 10`;
 
+          $("#movieModal").modal("show");
 
           if (favorite) {
             this.favoriteTarget.action = `/favorites/${favorite.id}`;
@@ -55,5 +57,5 @@ export default class extends Controller {
             this.deleteTarget.value = "";
           }
         });
-  }
-}
+      }
+    }

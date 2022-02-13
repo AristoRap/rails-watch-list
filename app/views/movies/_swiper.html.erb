@@ -4,7 +4,7 @@
       <%= image_tag "https://www.themoviedb.org/t/p/original#{movie['poster_path']}",
                     class: 'swiper-slide movie-images rounded',
                     data: { id: movie['id'], action: 'click->add-modal#add',
-                            toggle: "modal", target: "#movieModal", category: category } %>
+                            category: category } %>
         <% end %>
   </div>
   <div class="swiper-button-next swiper-nav text-white"></div>
