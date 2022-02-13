@@ -2,7 +2,7 @@ import { Controller } from "stimulus";
 import { csrfToken } from "@rails/ujs";
 
 export default class extends Controller {
-  static targets = [ "form", 'movieId', 'delete', 'btnForm', 'info'];
+  static targets = [ "form", 'info'];
 
   favorite(e) {
     e.preventDefault();
