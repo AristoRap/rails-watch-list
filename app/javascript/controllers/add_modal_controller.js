@@ -2,8 +2,7 @@ import { Controller } from "stimulus";
 import { fetchMovies } from "../fetch_movies";
 
 export default class extends Controller {
-  static targets = [ "movie", "modal", 'movieModal',
-                     'title', 'overview', 'imdbAverage',
+  static targets = [ 'title', 'overview', 'imdbAverage',
                      'favorite', 'movieId', 'backdrop',
                      'delete', 'btnForm' ];
 
