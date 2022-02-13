@@ -4,7 +4,6 @@ export default class extends Controller {
   static targets = [ "form", 'movieId', 'delete', 'btnForm'];
 
   favorite(e) {
-    console.log("Entered my AJAX method")
     const movieId = this.movieIdTarget.value
     const url = "/movies/popular";
 
