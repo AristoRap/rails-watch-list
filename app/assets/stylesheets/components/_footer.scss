@@ -1,15 +1,16 @@
 .footer {
-  padding: 3rem;
-  font-size: 1em;
-  background-color: black;
+  padding: 3rem 2rem;
+  background-color: $dark-gray;
   text-align: center;
   width: 100%;
   color: rgba(0,0,0,0.3);
   margin-top: auto;
   position: sticky;
 
+
   .footer-copyright {
     color: $light-gray;
+    font-size: 1em;
   }
 
   .fa-heart {
@@ -32,4 +33,8 @@
     opacity: 1;
     color: $orange;
   }
+}
+
+.tmdb-disclaimer {
+  font-size: 0.6em;
 }
