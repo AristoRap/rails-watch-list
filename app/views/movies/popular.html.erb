@@ -41,9 +41,9 @@
             </div>
 
             <%= simple_form_for @favorite, html: { class: 'fav-form', id: 'favorite' }, data: { add_modal_target: 'favorite', update_favorites_target: 'form', action: 'submit->update-favorites#favorite'}, remote: true do |f| %>
-              <%= f.hidden_field :movie_id, value: '', data: { add_modal_target: 'movieId' } %>
-              <%= f.button :button, 'Add to favorites', data: { add_modal_target: 'btnForm' }, class: 'btn button-orange' %>
-              <input type="hidden" name="_method" value="delete" data-add-modal-target="delete"></input>
+              <%= f.hidden_field :movie_id, value: '', data: { add_modal_target: 'movieId', update_favorites_target: 'movieId' } %>
+              <%= f.button :button, 'Add to favorites', data: { add_modal_target: 'btnForm', update_favorites_target: 'btnForm' }, class: 'btn button-orange' %>
+              <input type="hidden" name="_method" value="delete" data-add-modal-target="delete" data-update-favorites-target="delete"></input>
             <% end %>
 
           </div>
