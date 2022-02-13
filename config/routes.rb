@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :lists, only: [:destroy]
   resources :movies, only: [:index] do
     collection do
-      get '/popular', to: 'movies#popular'
+      get '/discover', to: 'movies#discover'
     end
   end
 end

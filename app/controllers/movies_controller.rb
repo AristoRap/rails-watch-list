@@ -1,5 +1,5 @@
 class MoviesController < ApplicationController
-  def popular
+  def discover
     @movies = fetch_movies
     @favorite = Favorite.new
     @favorites = current_user.favorites

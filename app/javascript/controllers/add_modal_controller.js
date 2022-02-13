@@ -15,7 +15,7 @@ export default class extends Controller {
   ];
 
   add(e) {
-    const url = "/movies/popular";
+    const url = "/movies/discover";
     const movieId = e.currentTarget.dataset.id;
     const category = e.currentTarget.dataset.category;
 

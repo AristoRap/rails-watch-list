@@ -1,4 +1,4 @@
-<div class="wrapper" data-controller='add-modal'>
+<div class="container" data-controller='add-modal'>
   <% @movies.each do |category, movies| %>
     <h2><%= category.to_s.split('_').join(' ').capitalize %></h2>
     <%= render 'swiper', movies: movies, category: category.to_s %>
