@@ -5,9 +5,13 @@ class FavoritesController < ApplicationController
   def create
     @favorite = Favorite.new(favorite_params)
     @favorite.user = current_user
+    @favorites = current_user.favorites
     respond_to do |format|
-      @favorite.save
-      format.json
+      if @favorite.save
+        format.json
+      else
+        redirect_to root_path, alert: 'Something went wrong'
+      end
     end
   end
 
@@ -17,9 +21,13 @@ class FavoritesController < ApplicationController
   def destroy
     @favorite = Favorite.find(params[:id])
     @movie = @favorite.movie_id
+    @favorites = current_user.favorites
     respond_to do |format|
-      @favorite.destroy
-      format.json
+      if @favorite.destroy
+        format.json
+      else
+        redirect_to root_path, alert: 'Something went wrong'
+      end
     end
   end
 

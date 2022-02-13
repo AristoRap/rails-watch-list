@@ -1,5 +1,5 @@
-if @favorite.persisted?
-  json.form json.partial!('favorites/form.html.erb', movie: @favorite.movie_id.to_i, favorite: @favorite)
-else
-  json.form json.partial!('favorites/form.html.erb', movie: @favorite.movie_id.to_i, favorite: Favorite.new)
-end
+json.alert json.partial!('shared/flashes.html.erb', notice: 'Added to favorites!')
+json.form json.partial!('favorites/form.html.erb', movie: @favorite.movie_id.to_i,
+                                                   favorite: @favorite,
+                                                   favorited: true)
+json.favorites favorites: @favorites

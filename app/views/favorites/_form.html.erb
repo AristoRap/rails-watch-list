@@ -1,11 +1,13 @@
-<% if current_user.favorites.find_by(movie_id: movie) %>
-  <%= simple_form_for current_user.favorites.find_by(movie_id: movie), method: :delete, data: { update_favorites_target: 'form', action: 'submit->update-favorites#favorite'} do |f| %>
-    <%= f.hidden_field :movie_id, value: movie %>
-    <%= f.button :button, 'Remove from favorites', class: 'btn button-orange' %>
+<% if favorited %>
+  <%= simple_form_for current_user.favorites.find_by(movie_id: movie), data: { update_favorites_target: 'form', action: 'submit->update-favorites#favorite'} do |f| %>
+    <%= f.hidden_field :movie_id, value: '', data: { add_modal_target: 'movieId', update_favorites_target: 'movieId' } %>
+    <input type="hidden" name="_method" value="delete" data-add-modal-target="delete" data-update-favorites-target="delete"></input>
+    <%= f.button :button, 'Remove from favorites', data: { add_modal_target: 'btnForm', update_favorites_target: 'btnForm' }, class: 'btn button-orange' %>
   <% end %>
 <% else %>
-  <%= simple_form_for favorite,data: { update_favorites_target: 'form', action: 'submit->update-favorites#favorite'} do |f| %>
-    <%= f.hidden_field :movie_id, value: movie %>
-    <%= f.button :button, 'Add to favorites', class: 'btn button-orange' %>
+  <%= simple_form_for favorite, data: { update_favorites_target: 'form', action: 'submit->update-favorites#favorite'} do |f| %>
+    <%= f.hidden_field :movie_id, value: movie, data: { add_modal_target: 'movieId', update_favorites_target: 'movieId' } %>
+    <input type="hidden" data-add-modal-target="delete" data-update-favorites-target="delete"></input>
+    <%= f.button :button, 'Add to favorites', data: { add_modal_target: 'btnForm', update_favorites_target: 'btnForm' }, class: 'btn button-orange' %>
   <% end %>
 <% end %>
