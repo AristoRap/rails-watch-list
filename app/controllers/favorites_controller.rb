@@ -10,7 +10,7 @@ class FavoritesController < ApplicationController
       if @favorite.save
         format.json
       else
-        redirect_to root_path, alert: 'Something went wrong'
+        redirect_to root_path, alert: 'Something went wrong when adding to favorites'
       end
     end
   end
@@ -22,11 +22,12 @@ class FavoritesController < ApplicationController
     @favorite = Favorite.find(params[:id])
     @movie = @favorite.movie_id
     @favorites = current_user.favorites
+    @favorite.destroy
     respond_to do |format|
-      if @favorite.destroy
+      if @favorite.destroyed?
         format.json
       else
-        redirect_to root_path, alert: 'Something went wrong'
+        redirect_to root_path, alert: 'Something went wrong when removing from favorites'
       end
     end
   end
