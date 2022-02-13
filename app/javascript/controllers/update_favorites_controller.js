@@ -6,8 +6,6 @@ export default class extends Controller {
 
   favorite(e) {
     e.preventDefault();
-    const movieId = this.movieIdTarget.value
-    const url = this.formTarget.action;
 
     fetch(this.formTarget.action, {
       method: "POST",
@@ -16,7 +14,7 @@ export default class extends Controller {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(this.infoTarget);
+
         this.infoTarget.innerHTML = ''
         this.infoTarget.innerHTML = data.alert
         this.formTarget.outerHTML = data.form
