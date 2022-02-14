@@ -1,5 +1,12 @@
 class FavoritesController < ApplicationController
   def index
+    @movies = my_favorite_movies
+    @favorite = Favorite.new
+    @favorites = current_user.favorites
+    respond_to do |format|
+      format.html
+      format.json { render json: { movies: @movies, favorites: @favorites } }
+    end
   end
 
   def create
@@ -34,6 +41,24 @@ class FavoritesController < ApplicationController
 
 
   private
+
+  def my_favorite_movies
+    favorites = current_user.favorites
+    favorite_movies = []
+
+    favorites.each do |favorite|
+      favorite_movies << find_movie(favorite.movie_id)
+    end
+    favorite_movies
+  end
+
+  def find_movie(movie_id)
+    url = "https://api.themoviedb.org/3/movie/#{movie_id}?api_key=#{ENV["TMDB_KEY"]}"
+    movie_serialized = URI.parse(url).read
+    return JSON.parse(movie_serialized) if JSON.parse(movie_serialized)
+
+    {}
+  end
 
   def favorite_params
     params.require(:favorite).permit(:movie_id)

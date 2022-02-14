@@ -1,2 +1,9 @@
-<h1>Favorites#index</h1>
-<p>Find me in app/views/favorites/index.html.erb</p>
+<div class="wrapper movie-cards " data-controller='add-modal'>
+  <% @movies.each do |movie|%>
+      <%= image_tag "https://www.themoviedb.org/t/p/original#{movie['poster_path']}",
+                    class: 'movie-images  card-grid-movie round-one',
+                    data: { id: movie['id'], action: 'click->add-modal#add',
+                    url: "favorites", category: ''} %>
+  <% end %>
+  <%= render 'movies/modal', favorite: @favorite %>
+</div>

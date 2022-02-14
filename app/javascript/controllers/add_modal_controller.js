@@ -12,13 +12,13 @@ export default class extends Controller {
     "btnForm",
     "category",
     "modal",
-    "info"
+    "info",
   ];
 
   add(e) {
-    const url = "/movies/discover";
     const movieId = e.currentTarget.dataset.id;
     const category = e.currentTarget.dataset.category;
+    const url = e.currentTarget.dataset.url;
     this.infoTarget.innerHTML = "";
 
     fetch(url, {
@@ -27,10 +27,14 @@ export default class extends Controller {
     })
       .then((response) => response.json())
       .then((data) => {
-
-        const clickedMovie = data.movies[category].find(
-          (movie) => movie.id == movieId
-        );
+        let clickedMovie = "";
+        if (category) {
+          clickedMovie = data.movies[category].find(
+            (movie) => movie.id == movieId
+          );
+        } else {
+          clickedMovie = data.movies.find((movie) => movie.id == movieId);
+        }
         const favorite = data.favorites.find(
           (favorite) => favorite.movie_id == movieId
         );
@@ -38,23 +42,9 @@ export default class extends Controller {
         // Update backdrop
         this.backdropTarget.src = `https://www.themoviedb.org/t/p/original${clickedMovie.backdrop_path}`;
         // Update title
-        if (category) {
-          this.titleTarget.innerText = clickedMovie.original_title;
-          this.overviewTarget.innerText = clickedMovie.overview;
-          this.imdbAverageTarget.innerText = `${clickedMovie.vote_average} / 10`;
-
-        } else {
-          this.titleTarget.innerText = data.movies.find(
-          (movie) => movie.id == movieId).original_title;
-
-          this.overviewTarget.innerText = data.movies.find(
-          (movie) => movie.id == movieId).overview;
-
-          this.imdbAverageTarget.innerText = `${
-            data.movies.find((movie) => movie.id == movieId)
-              .vote_average
-          } / 10`;
-        }
+        this.titleTarget.innerText = clickedMovie.original_title;
+        this.overviewTarget.innerText = clickedMovie.overview;
+        this.imdbAverageTarget.innerText = `${clickedMovie.vote_average} / 10`;
 
         //Trigger bootstrap modal to show via jQuery
         $("#movieModal").modal("show");

@@ -9,8 +9,6 @@ import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import "bootstrap";
 import { loadSwiperCarousel } from "../components/carousel";
-import { updateActiveSlideOnClick } from "../components/carousel_modal";
-import { fetchMovies } from "../fetch_movies";
 import "controllers"
 
 Rails.start()
@@ -21,6 +19,4 @@ document.addEventListener("turbolinks:load", () => {
   // Call your JS functions here
   // [...]
   loadSwiperCarousel();
-  updateActiveSlideOnClick();
-  fetchMovies();
 });

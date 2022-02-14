@@ -2,11 +2,11 @@
   <div class="swiper-wrapper p-1">
     <% movies.each do |movie| %>
       <%= image_tag "https://www.themoviedb.org/t/p/original#{movie['poster_path']}",
-                    class: 'swiper-slide movie-images rounded',
+                    class: 'swiper-slide movie-images round-one',
                     data: { id: movie['id'], action: 'click->add-modal#add',
-                            category: category } %>
+                          url: "movies/discover"  category: category } %>
         <% end %>
   </div>
-  <div class="swiper-button-next swiper-nav text-white"></div>
-  <div class="swiper-button-prev swiper-nav text-white"></div>
+  <div class="swiper-button-next swiper-nav text-lighter-gray"></div>
+  <div class="swiper-button-prev swiper-nav text-lighter-gray"></div>
 </div>
