@@ -20,13 +20,24 @@
             <%= link_to "My Lists", my_lists_path %>
           </li>
           <li class="mr-3">
-            <div class="input-group">
-              <input type="search" class="search-nav rounded-pill" placeholder="Search movies" aria-label="Search" aria-describedby="basic-addon1">
-              <div class="input-group-prepend">
-                <button class="search" type="button">
-                  <i class="fas fa-search text-lighter-gray"></i>
-                </button>
+            <div id="search-bar" data-controller='search-bar'>
+              <div class="input-group">
+                <input type="search"
+                       class="search-nav rounded-pill"
+                       placeholder="Search movies"
+                       aria-label="Search"
+                       aria-describedby="basic-addon1"
+                       data-search-bar-target='searchBar'
+                       data-action='keyup->search-bar#preview'>
+
+                <div class="input-group-prepend">
+                  <button class="search" type="button" data-search-bar-target='searchBtn'>
+                    <i class="fas fa-search text-lighter-gray"></i>
+                  </button>
+                </div>
               </div>
+              <ul id="search-results">
+              </ul>
             </div>
           </li>
 

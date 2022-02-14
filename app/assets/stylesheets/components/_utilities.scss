@@ -22,22 +22,3 @@
 .round-one {
   border-radius: 1rem;
 }
-
-.search {
-  border-top-right-radius: .5rem;
-  border-bottom-right-radius: .5rem;
-  border: none;
-  background-color: black;
-  i {
-    font-size: 1.2rem;
-  }
-  i:hover {
-    background-color: $dark-gray;
-    color: $orange;
-  }
-}
-
-.search-nav {
-  padding: 0.3rem 1rem;
-  border: none;
-}
