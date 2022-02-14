@@ -1,4 +1,9 @@
 class MoviesController < ApplicationController
+
+  def index
+
+  end
+
   def discover
     @movies = fetch_movies
     @favorite = Favorite.new

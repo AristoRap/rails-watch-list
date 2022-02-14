@@ -10,7 +10,6 @@ const loadSwiperCarousel = () => {
     spaceBetween: 5,
     slidesPerGroup: 2,
     loop: true,
-    centeredSlides: true,
     loopFillGroupWithBlank: true,
     navigation: {
       nextEl: ".swiper-button-next",

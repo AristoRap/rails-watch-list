@@ -19,23 +19,23 @@
           <li class="nav-item">
             <%= link_to "My Lists", my_lists_path %>
           </li>
-          <li class="mr-3">
+          <li class="mr-2">
             <div id="search-bar" data-controller='search-bar'>
-              <div class="input-group">
-                <input type="search"
-                       class="search-nav rounded-pill"
-                       placeholder="Search movies"
-                       aria-label="Search"
-                       aria-describedby="basic-addon1"
-                       data-search-bar-target='searchBar'
-                       data-action='keyup->search-bar#preview'>
-
+              <%= form_tag movies_path, method: :get, class: 'input-group align-items-center justify-content-between' do %>
+                <%= text_field_tag :query,
+                  params[:query],
+                  class: "search-nav rounded-pill",
+                  placeholder: "Search movies",
+                  aria: { describedby: 'basic-addon1'},
+                  data: { search_bar_target: 'searchBar',
+                          action: 'keyup->search-bar#preview' }
+                %>
                 <div class="input-group-prepend">
-                  <button class="search" type="button" data-search-bar-target='searchBtn'>
-                    <i class="fas fa-search text-lighter-gray"></i>
-                  </button>
+                  <%= button_tag class: "search px-2", data: { search_bar_target: 'searchBtn' }, name: 'commit', value: 'search' do %>
+                    <i class="fas fa-search text-lighter-gray" aria-hidden="true"></i>
+                  <% end %>
                 </div>
-              </div>
+              <% end %>
               <ul id="search-results">
               </ul>
             </div>
