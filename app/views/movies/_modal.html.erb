@@ -29,7 +29,7 @@
           <%= f.button :button, 'Add to favorites', data: { add_modal_target: 'btnForm' }, class: 'btn button-orange' %>
           <input type="hidden" name="_method" value="delete" data-add-modal-target="delete"></input>
         <% end %>
-        <div data-update-favorites-target='info'> </div>
+        <div data-add-modal-target='info' data-update-favorites-target='info'> </div>
       </div>
     </div>
   </div>

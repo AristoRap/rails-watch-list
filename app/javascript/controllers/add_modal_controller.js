@@ -12,12 +12,14 @@ export default class extends Controller {
     "btnForm",
     "category",
     "modal",
+    "info"
   ];
 
   add(e) {
     const url = "/movies/discover";
     const movieId = e.currentTarget.dataset.id;
     const category = e.currentTarget.dataset.category;
+    this.infoTarget.innerHTML = "";
 
     fetch(url, {
       method: "GET",
