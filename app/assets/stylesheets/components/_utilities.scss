@@ -3,9 +3,18 @@
 }
 
 .text-light-gray {
-  color: rgba(255, 255, 255, 0.8);
+  color: $light-gray;
+}
+
+.text-lighter-gray {
+  color: $lighter-gray;
 }
 
 .text-orange {
   color: #F0A500;
+}
+
+.header-secondary {
+  margin: 0;
+  font-size: 1.5rem;
 }
