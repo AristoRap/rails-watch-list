@@ -17,7 +17,6 @@ export default class extends Controller {
 
   add(e) {
     const movieId = e.currentTarget.dataset.id;
-    console.log(movieId);
     const url = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${process.env.TMDB_KEY}`;
     this.infoTarget.innerHTML = "";
 
@@ -46,7 +45,6 @@ export default class extends Controller {
           );
           // Update favorite form and attributes
           this.favoriteTarget.outerHTML = data.form
-          console.log(this.favoriteTarget)
           if (favorite) {
             this.favoriteTarget.action = `/favorites/${favorite.id}`;
             this.btnFormTarget.textContent = "Remove from favorites";
