@@ -6,11 +6,10 @@ Swiper.use([Navigation, Pagination]);
 
 const loadSwiperCarousel = () => {
   new Swiper(".mySwiper", {
-    slidesPerView: 10,
-    spaceBetween: 5,
+    slidesPerView: 9,
+    spaceBetween: 10,
     slidesPerGroup: 2,
     loop: true,
-    loopFillGroupWithBlank: true,
     navigation: {
       nextEl: ".swiper-button-next",
       prevEl: ".swiper-button-prev",

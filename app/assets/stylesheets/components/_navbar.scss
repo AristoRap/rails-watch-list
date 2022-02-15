@@ -1,6 +1,6 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: #000000;
+  background: linear-gradient(black, $darker-gray-trans);
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -23,5 +23,12 @@
 
   a:hover {
     color: #F0A500 !important;
+  }
+}
+
+.navbar-brand {
+  color: white;
+  &:hover {
+    color: white;
   }
 }
