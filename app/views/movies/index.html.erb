@@ -1,1 +1,11 @@
-<h2>Movies</h2>
+<div class="wrapper">
+  <h2>Movies</h2>
+  <div class="movie-cards" data-controller='add-modal'>
+    <% @movies.each do |movie|%>
+        <%= image_tag "https://www.themoviedb.org/t/p/original#{movie['poster_path']}",
+                      class: 'movie-images  card-grid-movie round-one',
+                      data: { id: movie['id'], action: 'click->add-modal#add' } %>
+    <% end %>
+    <%= render 'modal', favorite: @favorite %>
+  </div>
+</div>

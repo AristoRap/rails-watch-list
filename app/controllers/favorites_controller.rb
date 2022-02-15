@@ -5,7 +5,7 @@ class FavoritesController < ApplicationController
     @favorites = current_user.favorites
     respond_to do |format|
       format.html
-      format.json { render json: { movies: @movies, favorites: @favorites } }
+      format.json { render 'create' }
     end
   end
 

@@ -24,9 +24,10 @@
           </div>
         </div>
 
-        <%= simple_form_for favorite, html: { class: 'fav-form', id: 'favorite' }, data: { add_modal_target: 'favorite', update_favorites_target: 'form', action: 'submit->update-favorites#favorite'} do |f| %>
+        <%= simple_form_for favorite, data: { add_modal_target: 'favorite', update_favorites_target: 'form', action: 'submit->update-favorites#favorite'} do |f| %>
           <%= f.hidden_field :movie_id, value: '', data: { add_modal_target: 'movieId' } %>
           <%= f.button :button, 'Add to favorites', data: { add_modal_target: 'btnForm' }, class: 'btn button-orange' %>
+          <input type="hidden" name="_method" value="patch" data-add-modal-target="patch"></input>
           <input type="hidden" name="_method" value="delete" data-add-modal-target="delete"></input>
         <% end %>
         <div data-add-modal-target='info' data-update-favorites-target='info'> </div>
