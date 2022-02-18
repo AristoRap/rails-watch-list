@@ -15,9 +15,9 @@
 }
 
 .swiper-nav {
-  text-shadow: 0 0 16px black;
+  transform: scale(0.7);
   &:hover {
-    transform: scale(1.2);
+    transform: scale(1);
   }
 }
 
@@ -28,5 +28,15 @@
     opacity: 0.9;
     border:  1px solid rgba(255, 255, 255, 0.8);
     box-shadow: 0 0 8px white;
+  }
+}
+
+@media (min-width: 60rem) {
+  .swiper-nav {
+    transform: scale(1);
+    text-shadow: 0 0 16px black;
+    &:hover {
+      transform: scale(1.2);
+    }
   }
 }
