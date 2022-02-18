@@ -39,6 +39,11 @@ class FavoritesController < ApplicationController
     end
   end
 
+  def delete_by_movie_id
+    @favorite = current_user.favorites.find_by(movie_id: params[:movie_id])
+    @favorite.destroy
+    redirect_to favorites_path, notice: 'Removed from favorites'
+  end
 
   private
 

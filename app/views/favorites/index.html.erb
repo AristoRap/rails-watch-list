@@ -3,17 +3,26 @@
   <% @movies.each do |movie|%>
     <div class="flex-container bg-pale round-one mb-4">
       <%= image_tag "https://www.themoviedb.org/t/p/original#{movie['poster_path']}",
-                    class: 'movie-images favorite-movie round-one',
+                    class: 'favorite-movie round-one',
                     data: { id: movie['id']} %>
 
-      <div class="movie-info d-flex flex-column justify-content-between">
+      <div class="movie-info w-100 d-flex flex-column justify-content-between">
         <div class="movie-meta p-3">
-          <p class="font-md"><%= movie['original_title'] %></p>
+          <p class="font-md">
+            <span><%= movie['original_title'] %></span>
+            <span class='text-muted font-sm'>
+              (<%= Date.parse(movie['release_date']).year %>)
+            </span>
+          </p>
           <p class='font-sm text-light-gray'><%= movie['overview'] %></p>
         </div>
-        <div class="movie-meta p-3">
-          <p class="font-md"><%= movie['original_title'] %></p>
-          <p class='font-sm text-light-gray'><%= movie['overview'] %></p>
+        <div class="movie-meta flex-col p-3">
+          <p class="font-md"><%= movie['status'] %></p>
+          <p class='font-sm text-light-gray'><%= movie['video'] %></p>
+          <div class="remove mt-1 align-self-end">
+            <%= link_to('Remove from favorites', favorites_path(movie_id: movie['id']),
+                class: 'font-sm', method: :delete, remote: true) %>
+          </div>
         </div>
       </div>
     </div>

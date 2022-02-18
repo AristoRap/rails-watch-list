@@ -28,7 +28,13 @@
   flex-direction: row;
 }
 
-.movie-meta {
+
+.remove a {
+  color: #cc3333;
+
+  &:hover {
+    color: #cc3333;
+  }
 }
 
 @media (max-width: 40rem) {

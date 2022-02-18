@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   get '/my_lists', to: 'lists#my_lists', as: 'my_lists'
   resources :favorites, only: %i[index create destroy]
+  delete '/favorites', to: 'favorites#delete_by_movie_id'
   resources :lists, only: %i[index show new create] do
     resources :bookmarks, only: %i[new create]
   end
