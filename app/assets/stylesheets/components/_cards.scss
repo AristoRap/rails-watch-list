@@ -1,6 +1,6 @@
 .grid-three {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   grid-gap: 1rem;
   align-items: center;
 }
@@ -29,9 +29,30 @@
   display: none;
 }
 
+.featured-movie {
+  height: 10rem;
+  width: 100%;
+  object-fit: cover;
+  display: none;
+}
+
+
 .flex-container {
   display: flex;
   flex-direction: row;
+}
+
+.top-wrap {
+  position: relative;
+}
+
+.top {
+  position: absolute;
+  padding: 1rem;
+  top: 0;
+  left: 3%;
+  font-size: 1.5rem;
+  text-shadow: 0 0 1rem rgba(0,0,0,1);
 }
 
 

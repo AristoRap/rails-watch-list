@@ -1,6 +1,9 @@
 <div class="container">
   <div>
-    <h2 class="text-light-gray">Featured Lists</h2>
+    <div class="d-flex justify-content-between">
+    <h2 class="text-light-gray">My Lists</h2>
+    <%= link_to 'Add a new list', new_list_path, class: 'button-orange' %>
+    </div>
     <%= render 'lists' %>
   </div>
 </div>

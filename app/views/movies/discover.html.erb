@@ -1,7 +1,26 @@
 <div class="wrapper" data-controller='add-modal'>
   <% @movies.each do |category, movies| %>
-    <h2 class='header-secondary text-lighter-gray'><%= category.to_s.split('_').join(' ').capitalize %></h2>
-    <%= render 'swiper', movies: movies, category: category.to_s %>
+
+    <% if category == :now_playing %>
+      <h2 class='header-secondary text-lighter-gray'>Top 5</h2>
+
+      <div class="flex-container bg-pale round-one mb-4">
+        <% movies.first(5).each_with_index do |movie, index| %>
+          <div class='top-wrap p-3'>
+            <%= image_tag "https://www.themoviedb.org/t/p/original#{movie['backdrop_path']}",
+                          class: 'featured-movie d-block round-one',
+                          data: { id: movie['id']} %>
+            <span class="text-lighter-gray font-sm"><%= movie['original_title'] %></span>
+            <span class="text-light-gray top">#<%= index + 1%></span>
+          </div>
+        <% end %>
+      </div>
+
+    <% else %>
+
+      <h2 class='header-secondary text-lighter-gray'><%= category.to_s.split('_').join(' ').capitalize %></h2>
+      <%= render 'swiper', movies: movies, category: category.to_s %>
+    <% end %>
   <% end %>
 
   <%= render 'modal', favorite: @favorite %>
