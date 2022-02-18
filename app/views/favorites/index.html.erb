@@ -1,8 +1,21 @@
-<div class="wrapper movie-cards " data-controller='add-modal'>
+<div class="wrapper">
+  <h2 class="header-secondary text-lighter-gray mb-2">Favorites</h2>
   <% @movies.each do |movie|%>
+    <div class="flex-container bg-pale round-one mb-4">
       <%= image_tag "https://www.themoviedb.org/t/p/original#{movie['poster_path']}",
-                    class: 'movie-images card-grid-movie round-one',
-                    data: { id: movie['id'], action: 'click->add-modal#add' } %>
+                    class: 'movie-images favorite-movie round-one',
+                    data: { id: movie['id']} %>
+
+      <div class="movie-info d-flex flex-column justify-content-between">
+        <div class="movie-meta p-3">
+          <p class="font-md"><%= movie['original_title'] %></p>
+          <p class='font-sm text-light-gray'><%= movie['overview'] %></p>
+        </div>
+        <div class="movie-meta p-3">
+          <p class="font-md"><%= movie['original_title'] %></p>
+          <p class='font-sm text-light-gray'><%= movie['overview'] %></p>
+        </div>
+      </div>
+    </div>
   <% end %>
-  <%= render 'movies/modal', favorite: @favorite %>
 </div>
