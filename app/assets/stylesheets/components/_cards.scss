@@ -23,6 +23,12 @@
 
 }
 
+.favorite-movie-back {
+  width: 100%;
+  object-fit: cover;
+  display: none;
+}
+
 .flex-container {
   display: flex;
   flex-direction: row;
@@ -40,5 +46,17 @@
 @media (max-width: 40rem) {
   .flex-container {
     flex-direction: column;
+  }
+  .favorite-movie {
+    display: none;
+  }
+  .favorite-movie-back {
+    display: block;
+  }
+}
+
+@media (max-width: 30rem) {
+  #overview {
+    display: none;
   }
 }
