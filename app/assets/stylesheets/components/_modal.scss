@@ -9,12 +9,18 @@
   border-bottom: 1px solid rgba(0, 0, 0, 0.6);
 }
 
-.mdl-title{
+.mdl-title {
   position: absolute;
   bottom: 0;
-  color: white;
+  left: 0;
+  color: $orange;
   padding-left: 1rem;
   font-size: 2em;
+  &:hover {
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s;
+  }
 }
 
 .favorite {

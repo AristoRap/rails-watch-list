@@ -5,6 +5,11 @@
   align-items: center;
 }
 
+.grid-movie {
+  display: grid;
+  grid-template-columns: 1fr 2fr
+}
+
 .movie-cards {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));

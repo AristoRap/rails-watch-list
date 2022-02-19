@@ -1,4 +1,8 @@
 class MoviesController < ApplicationController
+  def show
+    @movie = find_movie(params[:id])
+    @video = find_video(params[:id])['results'].first
+  end
 
   def index
     @movies = if params[:query].present?
@@ -46,5 +50,21 @@ class MoviesController < ApplicationController
     url = "https://api.themoviedb.org/3/search/multi?api_key=#{ENV["TMDB_KEY"]}&query=#{query}&page=#{page}"
     movies_serialized = URI.parse(url).read
     return JSON.parse(movies_serialized)['results'] if JSON.parse(movies_serialized)['results']
+  end
+
+  def find_movie(movie_id)
+    url = "https://api.themoviedb.org/3/movie/#{movie_id}?api_key=#{ENV["TMDB_KEY"]}"
+    movie_serialized = URI.parse(url).read
+    return JSON.parse(movie_serialized) if JSON.parse(movie_serialized)
+
+    {}
+  end
+
+  def find_video(movie_id)
+    url = "https://api.themoviedb.org/3/movie/#{movie_id}/videos?api_key=#{ENV["TMDB_KEY"]}"
+    movie_serialized = URI.parse(url).read
+    return JSON.parse(movie_serialized) if JSON.parse(movie_serialized)
+
+    {}
   end
 end

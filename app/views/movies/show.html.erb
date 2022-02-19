@@ -1,0 +1,18 @@
+<div class="wrapper flex-container-movie justify-content-between">
+  <div class="movie-info">
+    <h2 class='hero'><%= @movie['original_title'] %></h2>
+  </div>
+
+  <div class="youtube-wrap round-one">
+    <iframe
+            width='100%'
+            height='100%'
+            src="https://www.youtube.com/embed/<%=@video['key']%>?autoplay=1&controls=0&showinfo=0"
+            title="<%=@movie['original_title']%>"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+      >
+    </iframe>
+  </div>
+</div>

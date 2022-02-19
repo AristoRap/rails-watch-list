@@ -1,0 +1,19 @@
+.hero {
+  font-size: 2rem;
+
+  @media (min-width: 62rem) {
+    font-size: 4rem;
+  }
+  @media (min-width: 30rem) {
+    font-size: 3rem;
+  }
+}
+
+.flex-container-movie {
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: 62rem) {
+    flex-direction: row;
+  }
+}

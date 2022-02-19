@@ -12,7 +12,8 @@ export default class extends Controller {
     "btnForm",
     "category",
     "modal",
-    "info"
+    "info",
+    'link'
   ];
 
   add(e) {
@@ -28,8 +29,9 @@ export default class extends Controller {
     .then((movie) => {
       //   // Update backdrop
       this.backdropTarget.src = `https://www.themoviedb.org/t/p/original${movie.backdrop_path}`;
-      //   // Update title
-      this.titleTarget.innerText = movie.original_title;
+
+      this.linkTarget.href = movieId;
+      this.linkTarget.innerText = movie.original_title;
       this.overviewTarget.innerText = movie.overview;
       this.imdbAverageTarget.innerText = `${movie.vote_average} / 10`;
       this.movieIdTarget.value = movieId;
