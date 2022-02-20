@@ -34,10 +34,6 @@ export default class extends Controller {
         }
       })
 
-
-
-
-
     fetch(movieUrl, {
       method: "GET",
       headers: { Accept: "application/json" },
