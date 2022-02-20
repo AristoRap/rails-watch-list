@@ -4,7 +4,7 @@
     <% if category == :now_playing %>
       <h2 class='header-secondary text-lighter-gray'>Top 5</h2>
 
-      <div class="flex-container bg-pale round-one mb-4">
+      <div class="flex-container bg-pale round-one mb-4 justify-content-between">
         <% movies.first(5).each_with_index do |movie, index| %>
           <div class='top-wrap p-3'>
             <%= image_tag "https://www.themoviedb.org/t/p/original#{movie['backdrop_path']}",

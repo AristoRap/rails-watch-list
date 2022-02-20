@@ -1,6 +1,5 @@
 class FavoritesController < ApplicationController
   def index
-    @movies = my_favorite_movies
     @favorite = Favorite.new
     @favorites = current_user.favorites
     respond_to do |format|
