@@ -24,6 +24,7 @@
 .movie-images {
   background-size: cover;
   background-position: center;
+  border:  1px solid rgba(40, 40, 40, 0.5);
   &:hover {
     opacity: 0.9;
     border:  1px solid rgba(255, 255, 255, 0.8);

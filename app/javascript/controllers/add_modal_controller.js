@@ -22,6 +22,7 @@ export default class extends Controller {
     const movieUrl = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${process.env.TMDB_KEY}`;
     this.infoTarget.innerHTML = "";
     const videoUrl = `https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${process.env.TMDB_KEY}`;
+    this.youtubeTarget.src = ``;
 
     fetch(videoUrl, {
       method: "GET",

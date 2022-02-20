@@ -8,8 +8,8 @@
         <% movies.first(5).each_with_index do |movie, index| %>
           <div class='top-wrap p-3'>
             <%= image_tag "https://www.themoviedb.org/t/p/original#{movie['backdrop_path']}",
-                          class: 'featured-movie d-block round-one',
-                          data: { id: movie['id']} %>
+                          class: 'movie-images featured-movie d-block round-one',
+                          data: { id: movie['id'], action: 'click->add-modal#add' } %>
             <span class="text-lighter-gray font-sm"><%= movie['original_title'] %></span>
             <span class="text-light-gray top">#<%= index + 1%></span>
           </div>
