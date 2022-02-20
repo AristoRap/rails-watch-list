@@ -15,10 +15,12 @@ class MoviesController < ApplicationController
   def discover
     @movies = fetch_movies(categories)
     @favorite = Favorite.new
+    @like = Like.new
     @favorites = current_user.favorites
+    @likes = current_user.likes
     respond_to do |format|
       format.html
-      format.json { render json: { movies: @movies, favorites: @favorites } }
+      format.json { render json: { movies: @movies, favorites: @favorites, likes: @likes } }
     end
   end
 

@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :lists, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  has_many :likes, dependent: :destroy
   has_many :movies, through: :favorites
   has_one_attached :photo
 end

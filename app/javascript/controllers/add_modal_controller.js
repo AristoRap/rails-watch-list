@@ -47,7 +47,9 @@ export default class extends Controller {
         this.linkTarget.innerText = movie.title;
         this.overviewTarget.innerText = movie.overview;
         this.imdbAverageTarget.innerText = `${movie.vote_average}`;
-        this.movieIdTarget.value = movieId;
+        this.movieIdTargets.forEach(target => {
+          target.value = movieId;
+        })
 
         fetch("/favorites", {
           method: "GET",
@@ -56,7 +58,7 @@ export default class extends Controller {
           .then((response) => response.json())
           .then((data) => {
             let favorite = data.favorites.find(
-              (favorite) => favorite.movie_id == this.movieIdTarget.value
+              (favorite) => favorite.movie_id == this.movieIdTargets[0].value
             );
             // Update favorite form and attributes
             this.favoriteTarget.outerHTML = data.form;
@@ -76,6 +78,8 @@ export default class extends Controller {
             //   //Trigger bootstrap modal to show via jQuery
             $("#movieModal").modal("show");
           });
+
+
       });
   }
 }
