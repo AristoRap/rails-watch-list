@@ -2,6 +2,14 @@
   padding: 0;
 }
 
+
+.rating {
+  &::after {
+    content: ' / 10';
+    font-size: 0.9rem;
+  }
+}
+
 .mdl-dark {
   background-color: $dark-gray;
 }

@@ -47,9 +47,9 @@ export default class extends Controller {
         this.backdropTarget.src = `https://www.themoviedb.org/t/p/original${movie.backdrop_path}`;
 
         // this.linkTarget.href = movieId;
-        this.linkTarget.innerText = movie.original_title;
+        this.linkTarget.innerText = movie.title;
         this.overviewTarget.innerText = movie.overview;
-        this.imdbAverageTarget.innerText = `${movie.vote_average} / 10`;
+        this.imdbAverageTarget.innerText = `${movie.vote_average}`;
         this.movieIdTarget.value = movieId;
 
         fetch("/favorites", {

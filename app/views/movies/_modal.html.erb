@@ -21,7 +21,9 @@
 
           <div class='d-flex align-items-start'>
             <i class="fab fa-imdb text-orange mr-2"></i>
-            <h3 class='font-sm-alt pt-1' data-add-modal-target='imdbAverage'></h3>
+            <span>
+              <h3 class='pt-1 rating' data-add-modal-target='imdbAverage'></h3>
+            </span>
           </div>
         </div>
 
@@ -31,8 +33,9 @@
           <input type="hidden" name="_method" value="patch" data-add-modal-target="patch"></input>
           <input type="hidden" name="_method" value="delete" data-add-modal-target="delete"></input>
         <% end %>
-        <div data-add-modal-target='info' data-update-favorites-target='info'> </div>
-        <div class="youtube-wrap round-one mt-3">
+        <div data-add-modal-target='info' data-update-favorites-target='info' class='mb-3'> </div>
+            <h3>Clip</h3>
+        <div class="youtube-wrap round-one">
             <iframe data-add-modal-target='youtube'
                     width='100%'
                     height='100%'
