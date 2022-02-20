@@ -13,14 +13,9 @@
   position: absolute;
   bottom: 0;
   left: 0;
-  color: $orange;
+  color: white;
   padding-left: 1rem;
   font-size: 2em;
-  &:hover {
-    color: white;
-    text-decoration: none;
-    transition: all 0.3s;
-  }
 }
 
 .favorite {

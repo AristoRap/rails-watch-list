@@ -2,10 +2,6 @@
   overflow: hidden;
   position: relative;
   width: 100%;
-
-  @media (min-width: 62rem) {
-    width: 70%;
-  }
 }
 
 .youtube-wrap::after {
