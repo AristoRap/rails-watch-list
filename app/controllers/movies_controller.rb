@@ -1,9 +1,4 @@
 class MoviesController < ApplicationController
-  def show
-    @movie = find_movie(params[:id])
-    @video = find_video(params[:id])['results'].first
-  end
-
   def index
     @movies = if params[:query].present?
                 search_movies(params[:query])

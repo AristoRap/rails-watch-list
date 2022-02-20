@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   end
   resources :bookmarks, only: [:destroy]
   resources :lists, only: [:destroy]
-  resources :movies, only: %i[index show] do
+  resources :movies, only: %i[index] do
     collection do
       get '/discover', to: 'movies#discover'
     end
