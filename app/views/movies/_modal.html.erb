@@ -37,6 +37,7 @@
           <div class='d-flex' id="likes">
             <%= simple_form_for like do |f|%>
               <%= f.hidden_field :movie_id, value: '', data: { add_modal_target: 'movieId' } %>
+              <%= f.hidden_field :liked, value: true, data: { add_modal_target: 'likeValue' } %>
               <%= f.button :button, '', class: 'button-reset ml-2' do %>
                 <i class="far fa-thumbs-up thumb" data-add-modal-target="likeBtn"></i>
               <% end %>
@@ -44,6 +45,7 @@
 
             <%= simple_form_for like do |f|%>
               <%= f.hidden_field :movie_id, value: '', data: { add_modal_target: 'movieId' } %>
+              <%= f.hidden_field :liked, value: false, data: { add_modal_target: 'dislikeValue' } %>
               <%= f.button :button, '', class: 'button-reset ml-2' do %>
                 <i class="far fa-thumbs-down thumb thumb-down" data-add-modal-target="dislikeBtn"></i>
               <% end %>
