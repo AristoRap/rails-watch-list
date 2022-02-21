@@ -1,4 +1,4 @@
-<div class="modal fade round-one" id='movieModal' data-controller='update-favorites' data-add-modal-target='modal' tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal fade round-one" id='movieModal' data-controller='update-favorites update-likes' data-add-modal-target='modal' tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content mdl-dark">
       <div class="mdl-header p-0">
@@ -35,7 +35,7 @@
           <% end %>
 
           <div class='d-flex' id="likes">
-            <%= simple_form_for like do |f|%>
+            <%= simple_form_for like, data: { update_likes_target: 'likeForm', action: 'submit->update-likes#like'} do |f|%>
               <%= f.hidden_field :movie_id, value: '', data: { add_modal_target: 'movieId' } %>
               <%= f.hidden_field :liked, value: true, data: { add_modal_target: 'likeValue' } %>
               <%= f.button :button, '', class: 'button-reset ml-2' do %>
@@ -43,7 +43,7 @@
               <% end %>
             <% end %>
 
-            <%= simple_form_for like do |f|%>
+            <%= simple_form_for like, data: { update_likes_target: 'likeForm', action: 'submit->update-likes#like'} do |f|%>
               <%= f.hidden_field :movie_id, value: '', data: { add_modal_target: 'movieId' } %>
               <%= f.hidden_field :liked, value: false, data: { add_modal_target: 'dislikeValue' } %>
               <%= f.button :button, '', class: 'button-reset ml-2' do %>
