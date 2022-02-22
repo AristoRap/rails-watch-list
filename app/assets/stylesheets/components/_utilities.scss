@@ -54,3 +54,24 @@
 .button-reset {
   padding: 0
 }
+
+.font-brand {
+  font-size: 3.5rem;
+
+  @media (min-width: 40rem) {
+    font-size: 5rem;
+  }
+  @media (min-width: 60rem) {
+    font-size: 7rem;
+  }
+}
+
+.font-tag {
+  font-size: 1rem;
+  @media (min-width: 40rem) {
+    font-size: 1.5rem;
+  }
+  @media (min-width: 60rem) {
+    font-size: 2rem;
+  }
+}
