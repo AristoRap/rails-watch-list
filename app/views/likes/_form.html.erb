@@ -2,13 +2,17 @@
 
   <% if like.liked %>
 
-    <%= simple_form_for like, method: :delete, data: { id: 'like', update_likes_target: 'likeForm', action: 'submit->update-likes#like'} do |f|%>
+    <%= simple_form_for like, data: { id: 'like', add_modal_target: 'likeForm', action: 'submit->update-likes#like'} do |f|%>
+      <input type="hidden" name="_method" value="delete" data-add-modal-target="likeDelete"></input>
+      <input type="hidden" data-add-modal-target="likePatch"></input>
       <%= f.button :button, '', class: 'button-reset ml-2' do %>
         <i class="fas fa-thumbs-up thumb thumb-active" data-add-modal-target="likeBtn"></i>
       <% end %>
     <% end %>
 
-    <%= simple_form_for like, method: :patch, data: { id: 'dislike', update_likes_target: 'likeForm', action: 'submit->update-likes#like'} do |f|%>
+    <%= simple_form_for like, data: { id: 'dislike', add_modal_target: 'dislikeForm', action: 'submit->update-likes#like'} do |f|%>
+      <input type="hidden" data-add-modal-target="dislikeDelete"></input>
+      <input type="hidden" name="_method" value="patch" data-add-modal-target="dislikePatch"></input>
       <%= f.hidden_field :liked, value: false, data: { add_modal_target: 'dislikeValue' } %>
       <%= f.button :button, '', class: 'button-reset ml-2' do %>
         <i class="far fa-thumbs-down thumb thumb-down" data-add-modal-target="dislikeBtn"></i>
@@ -17,14 +21,18 @@
 
   <% else %>
 
-    <%= simple_form_for like, method: :patch, data: { id: 'like', update_likes_target: 'likeForm', action: 'submit->update-likes#like'} do |f|%>
+    <%= simple_form_for like, data: { id: 'like', add_modal_target: 'likeForm', action: 'submit->update-likes#like'} do |f|%>
+      <input type="hidden" data-add-modal-target="likeDelete"></input>
+      <input type="hidden" name="_method" value="patch" data-add-modal-target="likePatch"></input>
       <%= f.hidden_field :liked, value: true, data: { add_modal_target: 'likeValue' } %>
       <%= f.button :button, '', class: 'button-reset ml-2' do %>
         <i class="far fa-thumbs-up thumb" data-add-modal-target="likeBtn"></i>
       <% end %>
     <% end %>
 
-    <%= simple_form_for like, method: :delete, data: { id: 'dislike', update_likes_target: 'likeForm', action: 'submit->update-likes#like'} do |f|%>
+    <%= simple_form_for like, data: { id: 'dislike', add_modal_target: 'dislikeForm', action: 'submit->update-likes#like'} do |f|%>
+      <input type="hidden" name="_method" value="delete" data-add-modal-target="dislikeDelete"></input>
+      <input type="hidden" data-add-modal-target="dislikePatch"></input>
       <%= f.button :button, '', class: 'button-reset ml-2' do %>
         <i class="fas fa-thumbs-down thumb thumb-down thumb-active" data-add-modal-target="dislikeBtn"></i>
       <% end %>
@@ -33,7 +41,9 @@
   <% end %>
 
 <% else %>
-  <%= simple_form_for like, data: { id: 'like', update_likes_target: 'likeForm', action: 'submit->update-likes#like'} do |f|%>
+  <%= simple_form_for like, data: { id: 'like', add_modal_target: 'likeForm', action: 'submit->update-likes#like'} do |f|%>
+    <input type="hidden" data-add-modal-target="likeDelete"></input>
+    <input type="hidden" data-add-modal-target="likePatch"></input>
     <%= f.hidden_field :movie_id, value: movie, data: { add_modal_target: 'movieId' } %>
     <%= f.hidden_field :liked, value: true, data: { add_modal_target: 'likeValue' } %>
     <%= f.button :button, '', class: 'button-reset ml-2' do %>
@@ -41,7 +51,9 @@
     <% end %>
   <% end %>
 
-  <%= simple_form_for like, data: { id: 'dislike', update_likes_target: 'likeForm', action: 'submit->update-likes#like'} do |f|%>
+  <%= simple_form_for like, data: { id: 'dislike', add_modal_target: 'dislikeForm', action: 'submit->update-likes#like'} do |f|%>
+    <input type="hidden" data-add-modal-target="dislikeDelete"></input>
+    <input type="hidden" data-add-modal-target="dislikePatch"></input>
     <%= f.hidden_field :movie_id, value: movie, data: { add_modal_target: 'movieId' } %>
     <%= f.hidden_field :liked, value: false, data: { add_modal_target: 'dislikeValue' } %>
     <%= f.button :button, '', class: 'button-reset ml-2' do %>

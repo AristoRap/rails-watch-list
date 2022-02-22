@@ -1,4 +1,13 @@
 class LikesController < ApplicationController
+  def index
+    @like = Like.new
+    @likes = current_user.likes
+    respond_to do |format|
+      format.html
+      format.json { render 'create' }
+    end
+  end
+
   def create
     @like = Like.new(like_params)
     @like.user = current_user

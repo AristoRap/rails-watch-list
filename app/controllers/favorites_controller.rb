@@ -2,6 +2,7 @@ class FavoritesController < ApplicationController
   def index
     @favorite = Favorite.new
     @favorites = current_user.favorites
+    @movies = my_favorite_movies
     respond_to do |format|
       format.html
       format.json { render 'create' }
@@ -19,9 +20,6 @@ class FavoritesController < ApplicationController
         redirect_to root_path, alert: 'Something went wrong when adding to favorites'
       end
     end
-  end
-
-  def update
   end
 
   def destroy
