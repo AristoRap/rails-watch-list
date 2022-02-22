@@ -11,6 +11,7 @@ import "bootstrap";
 import { loadSwiperCarousel } from "../components/carousel";
 import "controllers"
 import { showSearchBar } from './search_show'
+import { hideSearchBar } from './search_hide'
 
 Rails.start()
 Turbolinks.start()
@@ -21,4 +22,5 @@ document.addEventListener("turbolinks:load", () => {
   // [...]
   loadSwiperCarousel();
   showSearchBar();
+  hideSearchBar();
 });

@@ -100,7 +100,6 @@ export default class extends Controller {
             );
 
             this.likeWrapTarget.innerHTML = data.form;
-            console.log(this.movieIdTargets)
             this.movieIdTargets.forEach((target) => {
               target.value = movieId
             })

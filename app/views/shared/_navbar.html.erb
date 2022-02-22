@@ -13,7 +13,7 @@
         <% if user_signed_in? %>
           <li class="mr-2">
             <div class="search-box" data-controller='search-bar'>
-              <%= form_tag movies_path, method: :get, class: 'input-group align-items-center justify-content-between' do %>
+              <%= form_tag movies_path, method: :get, class: 'input-group search-form align-items-center justify-content-between' do %>
                   <i class="text-white fa fa-search search-box-icon" data-search-bar-target='searchBtn' name='commit' value='search'></i>
                   <%= text_field_tag :query,
                       params[:query],
