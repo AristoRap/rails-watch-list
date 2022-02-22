@@ -10,6 +10,7 @@ import "channels"
 import "bootstrap";
 import { loadSwiperCarousel } from "../components/carousel";
 import "controllers"
+import { showSearchBar } from './search_show'
 
 Rails.start()
 Turbolinks.start()
@@ -19,4 +20,5 @@ document.addEventListener("turbolinks:load", () => {
   // Call your JS functions here
   // [...]
   loadSwiperCarousel();
+  showSearchBar();
 });

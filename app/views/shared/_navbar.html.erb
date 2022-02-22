@@ -9,8 +9,25 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-      <ul class="navbar-nav mr-auto mt-2 mt-lg-0 align-items-center">
+      <ul class="navbar-nav mr-auto align-items-center">
         <% if user_signed_in? %>
+          <li class="mr-2">
+            <div class="search-box" data-controller='search-bar'>
+              <%= form_tag movies_path, method: :get, class: 'input-group align-items-center justify-content-between' do %>
+                  <i class="text-white fa fa-search search-box-icon" data-search-bar-target='searchBtn' name='commit' value='search'></i>
+                  <%= text_field_tag :query,
+                      params[:query],
+                      class: "search-box-input round-one",
+                      placeholder: "Titles, people",
+                      required: true,
+                      data: { search_bar_target: 'searchBar',
+                              action: 'keyup->search-bar#preview' }
+                    %>
+              <% end %>
+              <ul id="search-results">
+              </ul>
+            </div>
+          </li>
 
           <li class="nav-item active">
             <%= link_to "Discover", discover_movies_path %>
@@ -18,28 +35,6 @@
 
           <li class="nav-item">
             <%= link_to "My Lists", lists_path %>
-          </li>
-          <li class="mr-2">
-            <div id="search-bar" data-controller='search-bar'>
-              <%= form_tag movies_path, method: :get, class: 'input-group align-items-center justify-content-between' do %>
-                <%= text_field_tag :query,
-                  params[:query],
-                  class: "search-nav rounded-pill",
-                  placeholder: "Search movies",
-                  aria: { describedby: 'basic-addon1'},
-                  required: true,
-                  data: { search_bar_target: 'searchBar',
-                          action: 'keyup->search-bar#preview' }
-                %>
-                <div class="input-group-prepend">
-                  <%= button_tag class: "search px-2", data: { search_bar_target: 'searchBtn' }, name: 'commit', value: 'search' do %>
-                    <i class="fas fa-search text-lighter-gray" aria-hidden="true"></i>
-                  <% end %>
-                </div>
-              <% end %>
-              <ul id="search-results">
-              </ul>
-            </div>
           </li>
 
           <li class="dropdown">
