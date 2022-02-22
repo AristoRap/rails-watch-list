@@ -1,7 +1,9 @@
 class LikesController < ApplicationController
+  before_action :set_likes, only: %i[index create update destroy]
+  before_action :set_like, only: %i[update destroy]
+
   def index
     @like = Like.new
-    @likes = current_user.likes
     respond_to do |format|
       format.html
       format.json { render 'create' }
@@ -11,7 +13,6 @@ class LikesController < ApplicationController
   def create
     @like = Like.new(like_params)
     @like.user = current_user
-    @likes = current_user.likes
     respond_to do |format|
       if @like.save
         format.json
@@ -22,7 +23,6 @@ class LikesController < ApplicationController
   end
 
   def update
-    @like = Like.find(params[:id])
     respond_to do |format|
       if @like.update(like_params)
         format.json { render 'create' }
@@ -33,9 +33,7 @@ class LikesController < ApplicationController
   end
 
   def destroy
-    @like = Like.find(params[:id])
     @movie = @like.movie_id
-    @likes = current_user.likes
     @like.destroy
     respond_to do |format|
       if @like.destroyed?
@@ -50,5 +48,13 @@ class LikesController < ApplicationController
 
   def like_params
     params.require(:like).permit(:movie_id, :liked)
+  end
+
+  def set_likes
+    @likes = current_user.likes
+  end
+
+  def set_like
+    @like = Like.find(params[:id])
   end
 end
