@@ -34,8 +34,8 @@
             <input type="hidden" name="_method" value="delete" data-add-modal-target="delete"></input>
           <% end %>
 
-          <div class='d-flex' id="likes">
-            <%= simple_form_for like, data: { update_likes_target: 'likeForm', action: 'submit->update-likes#like'} do |f|%>
+          <div class='d-flex' data-update-likes-target='likeWrap'>
+            <%= simple_form_for like, data: { id: 'like', update_likes_target: 'likeForm', action: 'submit->update-likes#like'} do |f|%>
               <%= f.hidden_field :movie_id, value: '', data: { add_modal_target: 'movieId' } %>
               <%= f.hidden_field :liked, value: true, data: { add_modal_target: 'likeValue' } %>
               <%= f.button :button, '', class: 'button-reset ml-2' do %>
@@ -43,7 +43,7 @@
               <% end %>
             <% end %>
 
-            <%= simple_form_for like, data: { update_likes_target: 'likeForm', action: 'submit->update-likes#like'} do |f|%>
+            <%= simple_form_for like, data: { id: 'dislike', update_likes_target: 'likeForm', action: 'submit->update-likes#like'} do |f|%>
               <%= f.hidden_field :movie_id, value: '', data: { add_modal_target: 'movieId' } %>
               <%= f.hidden_field :liked, value: false, data: { add_modal_target: 'dislikeValue' } %>
               <%= f.button :button, '', class: 'button-reset ml-2' do %>

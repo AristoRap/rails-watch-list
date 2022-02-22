@@ -12,12 +12,34 @@ class LikesController < ApplicationController
     end
   end
 
+  def update
+    @like = Like.find(params[:id])
+    respond_to do |format|
+      if @like.update(like_params)
+        format.json
+      else
+        redirect_to root_path, alert: 'Something went wrong when updating likes'
+      end
+    end
+  end
+
   def destroy
+    @like = Like.find(params[:id])
+    @movie = @like.movie_id
+    @likes = current_user.likes
+    @like.destroy
+    respond_to do |format|
+      if @like.destroyed?
+        format.json
+      else
+        redirect_to root_path, alert: 'Something went wrong when removing from likes'
+      end
+    end
   end
 
   private
 
   def like_params
-    params.require(:like).permit(:movie_id)
+    params.require(:like).permit(:movie_id, :liked)
   end
 end
