@@ -16,7 +16,7 @@ class LikesController < ApplicationController
     @like = Like.find(params[:id])
     respond_to do |format|
       if @like.update(like_params)
-        format.json
+        format.json { render 'create' }
       else
         redirect_to root_path, alert: 'Something went wrong when updating likes'
       end
