@@ -1,35 +1,37 @@
 <div class="wrapper">
   <h2 class="header-secondary text-lighter-gray mb-2">Favorites</h2>
-  <% @movies.each do |movie|%>
-    <div class="flex-container bg-pale round-one mb-4">
-      <div>
-        <%= image_tag "https://www.themoviedb.org/t/p/original#{movie['poster_path']}",
-                      class: 'favorite-movie round-one h-100',
-                      data: { id: movie['id']} %>
-        <%= image_tag "https://www.themoviedb.org/t/p/original#{movie['backdrop_path']}",
-                      class: 'favorite-movie-back round-one h-100',
-                      data: { id: movie['id']} %>
-      </div>
-
-      <div class="movie-info w-100 d-flex flex-column justify-content-between">
-        <div class="movie-meta p-3">
-          <p class="font-md">
-            <span><%= movie['original_title'] %></span>
-            <span class='text-muted font-sm'>
-              (<%= Date.parse(movie['release_date']).year %>)
-            </span>
-          </p>
-          <p class='font-sm text-light-gray' id='overview'><%= movie['overview'] %></p>
+  <div class="grid-favorites">
+    <% @movies.each do |movie|%>
+      <div class="flex-container bg-pale round-one mb-4">
+        <div>
+          <%= image_tag "https://www.themoviedb.org/t/p/original#{movie['poster_path']}",
+                        class: 'favorite-movie round-one h-100',
+                        data: { id: movie['id']} %>
+          <%= image_tag "https://www.themoviedb.org/t/p/original#{movie['backdrop_path']}",
+                        class: 'favorite-movie-back round-one h-100',
+                        data: { id: movie['id']} %>
         </div>
-        <div class="flex-col p-3">
-          <p class="font-md"><%= movie['status'] %></p>
-          <p class='font-sm text-light-gray'><%= movie['video'] %></p>
-          <div class="remove mt-1 align-self-end">
-            <%= link_to('Remove from favorites', favorites_path(movie_id: movie['id']),
-                class: 'font-sm', method: :delete, remote: true) %>
+
+        <div class="movie-info w-100 d-flex flex-column justify-content-between">
+          <div class="movie-meta p-3">
+            <p class="font-md">
+              <span><%= movie['original_title'] %></span>
+              <span class='text-muted font-sm'>
+                (<%= Date.parse(movie['release_date']).year %>)
+              </span>
+            </p>
+            <p class='font-sm text-light-gray' id='overview'><%= movie['overview'] %></p>
+          </div>
+          <div class="flex-col p-3">
+            <p class="font-md"><%= movie['status'] %></p>
+            <p class='font-sm text-light-gray'><%= movie['video'] %></p>
+            <div class="remove mt-1 align-self-end">
+              <%= link_to('Remove from favorites', favorites_path(movie_id: movie['id']),
+                  class: 'font-sm', method: :delete, remote: true) %>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>

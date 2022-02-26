@@ -5,6 +5,17 @@
   align-items: center;
 }
 
+.grid-favorites {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 1rem;
+  grid-auto-rows: 1fr;
+
+  @media (min-width: 40rem) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
 .grid-movie {
   display: grid;
   grid-template-columns: 1fr 2fr

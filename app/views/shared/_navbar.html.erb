@@ -1,7 +1,7 @@
 <nav class="navbar navbar-dark navbar-expand-lg sticky-top navbar-lewagon px-5 py-3">
   <div class="container-fluid">
     <% if user_signed_in? %>
-      <%= link_to 'WatchList', lists_path, class: "navbar-brand" %>
+      <%= link_to 'WatchList', discover_movies_path, class: "navbar-brand" %>
     <% else %>
       <%= link_to 'WatchList', root_path , class: "navbar-brand" %>
     <% end %>
@@ -34,7 +34,7 @@
           </li>
 
           <li class="nav-item">
-            <%= link_to "My Lists", lists_path %>
+            <%= link_to 'Favorites', favorites_path %>
           </li>
 
           <li class="dropdown">
@@ -48,7 +48,6 @@
 
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
               <%= link_to 'Profile', edit_user_registration_path, class: 'dropdown-item' %>
-              <%= link_to 'Favorites', favorites_path, class: 'dropdown-item' %>
               <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             </div>
           </li>
