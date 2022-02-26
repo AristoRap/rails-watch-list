@@ -1,5 +1,12 @@
 <div class="wrapper">
-  <h2 class="header-secondary text-lighter-gray mb-2">Favorites</h2>
+  <div class="flex-container justify-content-between align-items-center py-3">
+    <h2 class="header-secondary text-lighter-gray">Favorites</h2>
+      <div class="favorite-search-box">
+        <form class="form-inline">
+          <input class="form-control round-one fav-search" type="search" placeholder="Search favorites" aria-label="Search">
+        </form>
+      </div>
+  </div>
   <div class="grid-favorites">
     <% @movies.each do |movie|%>
       <div class="flex-container bg-pale round-one mb-4">
@@ -11,7 +18,6 @@
                         class: 'favorite-movie-back round-one h-100',
                         data: { id: movie['id']} %>
         </div>
-
         <div class="movie-info w-100 d-flex flex-column justify-content-between">
           <div class="movie-meta p-3">
             <p class="font-md">

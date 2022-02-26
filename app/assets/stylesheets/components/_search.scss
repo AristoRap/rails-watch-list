@@ -5,6 +5,19 @@
   margin: 0;
   line-height: 24px;
 }
+.fav-search {
+  border: solid 2px $light-gray;
+  background: transparent;
+  color: $lighter-gray;
+  &:focus {
+    border: solid 2px $lighter-gray;
+    background: transparent;
+    color: $lighter-gray;
+  }
+  &::placeholder {
+    color: $light-gray;
+  }
+}
 
 .search {
   border-top-right-radius: .5rem;
