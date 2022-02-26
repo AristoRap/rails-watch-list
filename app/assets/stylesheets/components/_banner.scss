@@ -1,6 +1,11 @@
 .banner {
-  background-color: #E84545;
-  color: white;
+  border-radius: 1rem;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  &-title {
+    font-size: 3rem;
+    color: white;
+  }
   p {
     color: white;
     opacity: 0.8
@@ -21,6 +26,8 @@
   background: repeating-linear-gradient(45deg,
               transparent 0 20px,
               $orange 20px 40px);
+  background-size: 400% 400%;
+  animation: gradient 150s infinite;
   .background-black-soft {
     background: linear-gradient(rgba(20, 20, 20, 0.2), rgba(20, 20, 20, 0.2));
     width: 100%;
@@ -38,5 +45,14 @@
     width: 100%;
     text-align: center;
     padding-bottom: 16px;
+  }
+}
+
+@keyframes gradient {
+  from {
+    background-position: 0%;
+  }
+  to {
+    background-position: 100%;
   }
 }
