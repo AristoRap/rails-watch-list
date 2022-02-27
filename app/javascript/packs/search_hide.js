@@ -5,7 +5,6 @@ const hideSearchBar = () => {
   document.addEventListener("click", (e) => {
     if (e.target.parentElement != searchForm) {
       searchBox.classList.remove("active");
-      console.log(searchForm);
     }
   });
 };

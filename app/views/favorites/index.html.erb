@@ -2,14 +2,20 @@
   <div class="flex-container justify-content-between py-3">
     <h2 class="header-secondary text-lighter-gray">Favorites</h2>
       <div class="favorite-search-box">
-        <form class="form-inline">
-          <input class="form-control round-one fav-search" type="search" placeholder="Search favorites" aria-label="Search">
+        <form class="form-inline" data-controller="search-favorites">
+          <input class="form-control round-one fav-search"
+                 type="search"
+                 placeholder="Search favorites"
+                 aria-label="Search"
+                 data-search-favorites-target="favoriteSearch"
+                 data-action='keyup->search-favorites#search'>
+
         </form>
       </div>
   </div>
   <div class="grid-favorites">
     <% @movies.each do |movie|%>
-      <div class="flex-container bg-pale round-one mb-4">
+      <div class="flex-container bg-pale round-one mb-4" id= "<%= movie['id'] %>" >
         <div>
           <%= image_tag "https://www.themoviedb.org/t/p/original#{movie['poster_path']}",
                         class: 'favorite-movie round-one h-100',

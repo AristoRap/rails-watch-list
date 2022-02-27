@@ -21,7 +21,7 @@ class MoviesController < ApplicationController
     @likes = current_user.likes
     respond_to do |format|
       format.html
-      format.json { render json: { movies: @movies, favorites: @favorites, likes: @likes } }
+      format.json { render json: { movies: @movies, favorites: @favorites, likes: @likes, favorite: @favorite } }
     end
   end
 
