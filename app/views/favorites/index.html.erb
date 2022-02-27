@@ -1,21 +1,22 @@
 <div class="wrapper">
-  <div class="flex-container justify-content-between py-3">
+  <div class="flex-container py-3">
     <h2 class="header-secondary text-lighter-gray">Favorites</h2>
       <div class="favorite-search-box">
-        <form class="form-inline" data-controller="search-favorites">
-          <input class="form-control round-one fav-search"
-                 type="search"
-                 placeholder="Search favorites"
-                 aria-label="Search"
-                 data-search-favorites-target="favoriteSearch"
-                 data-action='keyup->search-favorites#search'>
-
-        </form>
+        <select class="js-example-basic-single form-control round-one fav-search"
+                name="movie"
+                style="width: 100%"
+                data-controller="search-favorites"
+                data-search-favorites-target="favoriteSearch"
+                data-action='keyup->search-favorites#search'>
+          <% @movies.each do |movie| %>
+            <option value="<%= movie['id'] %>"><%= movie['original_title'] %></option>
+          <% end %>
+        </select>
       </div>
   </div>
   <div class="grid-favorites">
     <% @movies.each do |movie|%>
-      <div class="flex-container bg-pale round-one mb-4" id= "<%= movie['id'] %>" >
+      <div class="flex-container bg-pale round-one mb-4 fav" id= "<%= movie['id'] %>" >
         <div>
           <%= image_tag "https://www.themoviedb.org/t/p/original#{movie['poster_path']}",
                         class: 'favorite-movie round-one h-100',

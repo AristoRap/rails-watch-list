@@ -9,6 +9,8 @@ import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import "bootstrap";
 import { loadSwiperCarousel } from "../components/carousel";
+import { initSelect2 } from "../plugins/init_select2";
+import { updateSearches } from "../plugins/init_select2";
 import "controllers"
 import { showSearchBar } from './search_show'
 import { hideSearchBar } from './search_hide'
@@ -23,4 +25,6 @@ document.addEventListener("turbolinks:load", () => {
   loadSwiperCarousel();
   showSearchBar();
   hideSearchBar();
+  initSelect2();
+  updateSearches();
 });
