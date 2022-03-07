@@ -37,7 +37,6 @@
           </div>
           <div class="flex-col p-3">
             <p class="font-md"><%= movie['status'] %></p>
-            <p class='font-sm text-light-gray'><%= movie['video'] %></p>
             <div class="remove mt-1 align-self-end">
               <%= link_to('Remove from favorites', favorites_path(movie_id: movie['id']),
                   class: 'font-sm', method: :delete, remote: true) %>
