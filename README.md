@@ -1,24 +1,20 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+* Ruby version: '2.7.4'
 
-* Ruby version
+* Clone the repo as per GitHub's instructions
 
-* System dependencies
 
-* Configuration
+* Database creation & migration (postgreSQL)
+  * rails db:create
+  * rails db:migrate
 
-* Database creation
+* Add gems and yarn dependencies
+  * bundle install
+  * yarn install
 
-* Database initialization
+* Start server
+  * rails s
+  * Visit http://localhost:3000/
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
