@@ -16,5 +16,5 @@
 
 * Start server
   * rails s
-
+  * Visit http://localhost:3000/
 
